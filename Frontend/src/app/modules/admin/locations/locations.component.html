@@ -1,0 +1,75 @@
+<div class="admin-dashboard">
+  <h2>Locations Management</h2>
+
+  <!-- Filters -->
+  <div class="filters">
+    <input type="text" placeholder="Address" [(ngModel)]="filters.address" />
+    <input type="text" placeholder="City" [(ngModel)]="filters.city" />
+    <input type="text" placeholder="Country" [(ngModel)]="filters.country" />
+    <button (click)="search()">Search</button>
+    <button (click)="clearFilters()">Clear Filters</button>
+  </div>
+
+  <!-- Add New Location Button -->
+  <button (click)="addLocation()">Add New Location</button>
+
+  <!-- Locations Table -->
+  <table>
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>ID</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>Postal Code</th>
+      <th>Country</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let location of locations; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ location.locationId }}</td>
+      <td>{{ location.address }}</td>
+      <td>{{ location.city }}</td>
+      <td>{{ location.postalCode }}</td>
+      <td>{{ location.country }}</td>
+      <td>{{ location.latitude }}</td>
+      <td>{{ location.longitude }}</td>
+      <td>
+        <button (click)="editLocation(location)">Edit</button>
+        <button (click)="deleteLocation(location.locationId)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- Add/Edit Form -->
+  <div *ngIf="editing || adding" class="form-container">
+    <h3>{{ editing ? 'Edit Location' : 'Add New Location' }}</h3>
+    <form>
+      <label>Address:</label>
+      <input [(ngModel)]="currentLocation.address" name="address" />
+
+      <label>City:</label>
+      <input [(ngModel)]="currentLocation.city" name="city" />
+
+      <label>Postal Code:</label>
+      <input [(ngModel)]="currentLocation.postalCode" name="postalCode" />
+
+      <label>Country:</label>
+      <input [(ngModel)]="currentLocation.country" name="country" />
+
+      <label>Latitude:</label>
+      <input type="number" [(ngModel)]="currentLocation.latitude" name="latitude" />
+
+      <label>Longitude:</label>
+      <input type="number" [(ngModel)]="currentLocation.longitude" name="longitude" />
+
+      <button (click)="save()">Save</button>
+      <button (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+</div>

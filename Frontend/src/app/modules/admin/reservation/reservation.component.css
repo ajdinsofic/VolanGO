@@ -1,0 +1,97 @@
+.admin-dashboard {
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: #f8f8f8; /* Light gray background */
+}
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  color: #333; /* Dark gray text color */
+}
+
+th {
+  background-color: #444; /* Dark background for headers */
+  color: #fff; /* White text for headers */
+}
+
+.filters input {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  color: #333; /* Dark text */
+  background-color: #fff; /* White background */
+}
+
+button {
+  margin: 5px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #007bff; /* Blue button background */
+  color: #fff; /* White text */
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+form {
+  margin-top: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9; /* Light gray form background */
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+  color: #333; /* Dark text for labels */
+}
+
+input {
+  padding: 5px;
+  width: 100%;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  color: #333; /* Dark text */
+}
+
+h2,
+h3 {
+  color: #444; /* Slightly dark text for headings */
+}
+
+.sort-options {
+  border-color: #7a7a7a;
+  border-radius: 8px; /* Povećao sam radius za vidljiviji efekat */
+  padding: 5px; /* Dodao malo prostora unutar kutije */
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.sort-options select {
+  border: 2px solid #7a7a7a; /* Dodavanje ivice sa bojom */
+  border-radius: 5px; /* Zaobljenje ivica select elementa */
+  padding: 8px;
+  width: 200px; /* Podesite širinu prema potrebi */
+  font-size: 14px; /* Povećanje fonta za bolju čitljivost */
+}
+
+.sort-options p {
+  margin-bottom: 5px; /* Razmak između paragrafa i select-a */
+  font-weight: bold;
+}
+
+.error-message {
+  color: red;
+  font-size: 15px;
+}

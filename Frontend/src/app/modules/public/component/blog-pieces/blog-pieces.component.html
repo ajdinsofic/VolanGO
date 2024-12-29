@@ -1,0 +1,48 @@
+<div class="container-fluid blog py-5">
+  <div class="container py-5">
+    <div
+      class="text-center mx-auto pb-5 wow fadeInUp"
+      data-wow-delay="0.1s"
+      style="max-width: 800px;"
+    >
+      <h1 class="display-5 text-capitalize mb-3">
+        {{ 'centralBlog' | translate }}
+        <span class="text-primary">{{ 'news' | translate }}</span>
+      </h1>
+      <p class="mb-0">{{ 'blogDescription' | translate }}</p>
+    </div>
+    <div class="row g-4">
+      <div
+        *ngFor="let post of blogPosts"
+        class="col-lg-4 wow fadeInUp"
+        [attr.data-wow-delay]="post.delay"
+      >
+        <div class="blog-item">
+          <div class="blog-img">
+            <img
+              [src]="post.image"
+              class="img-fluid rounded-top w-100"
+              alt="Image"
+            />
+          </div>
+          <div class="blog-content rounded-bottom p-4">
+            <div class="blog-date">{{ post.date }}</div>
+            <div class="blog-comment my-3">
+              <div class="small">
+                <span class="fa fa-user text-primary"></span
+                ><span class="ms-2">{{ post.author }}</span>
+              </div>
+              <div class="small">
+                <span class="fa fa-comment-alt text-primary"></span
+                ><span class="ms-2">{{ post.comments }} {{ 'comments' | translate }}</span>
+              </div>
+            </div>
+            <a href="#" class="h4 d-block mb-3">{{ post.titleKey | translate }}</a>
+            <p class="mb-3">{{ post.descriptionKey | translate }}</p>
+            <a href="#" id='ap' class="">{{ 'readMore' | translate }} <i class="fa fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

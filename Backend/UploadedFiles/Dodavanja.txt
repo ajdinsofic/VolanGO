@@ -1,0 +1,97 @@
+Tabela vehicles
+----------------------------------------------------------------------------------
+INSERT INTO public."Vehicles" ("LocationId", "VehicleTypeId", "VIN", "Make", "Model", "Year", "RegistrationNumber", "Color", "Mileage", "DailyRentalRate", "Description", "Status") VALUES
+(15, 1, 'WAUZZZ111111111', 'Audi', 'A3', 2021, 'AAA-111-AAA', 'Blue', 25000, 45.00, 'Good condition', TRUE),
+(16, 2, 'WAUZZZ222222222', 'Audi', 'A4', 2022, 'BBB-222-BBB', 'Silver', 15000, 55.00, 'Excellent condition', TRUE),
+(17, 3, 'WAUZZZ333333333', 'Audi', 'A6', 2023, 'CCC-333-CCC', 'Black', 5000, 70.00, 'New', TRUE),
+(18, 4, 'WAUZZZ444444444', 'Audi', 'Q5', 2020, 'DDD-444-DDD', 'Gray', 30000, 60.00, 'Well-maintained', TRUE),
+(19, 5, 'XOPEL111111111', 'Opel', 'Corsa', 2022, 'EEE-555-EEE', 'Red', 18000, 38.00, 'Minor scratches', TRUE),
+(20, 6, 'XOPEL222222222', 'Opel', 'Astra', 2023, 'FFF-666-FFF', 'White', 8000, 50.00, 'Excellent condition', TRUE),
+(21, 7, 'XOPEL333333333', 'Opel', 'Insignia', 2021, 'GGG-777-GGG', 'Blue', 22000, 65.00, 'Good condition', TRUE),
+(22, 3, 'JTOYOT111111111', 'Toyota', 'Yaris', 2023, 'HHH-888-HHH', 'Black', 3000, 40.00, 'New', TRUE),
+(23, 4, 'JTOYOT222222222', 'Toyota', 'Camry', 2022, 'III-999-III', 'Silver', 12000, 60.00, 'Low mileage', TRUE),
+(24, 5, 'JTOYOT333333333', 'Toyota', 'RAV4', 2021, 'JJJ-000-JJJ', 'Red', 20000, 55.00, 'Good condition', TRUE),
+(25, 7, 'VF3400111111111', 'Peugeot', '208', 2022, 'KKK-111-KKK', 'Gray', 10000, 42.00, 'Well-maintained', TRUE),
+(26, 1, 'VF3400222222222', 'Peugeot', '308', 2023, 'LLL-222-LLL', 'Blue', 5000, 58.00, 'Excellent condition', TRUE),
+(27, 2, 'VF3400333333333', 'Peugeot', '508', 2021, 'MMM-333-MMM', 'White', 15000, 68.00, 'Minor damage', TRUE),
+(28, 4, 'WAUZZZ555555555', 'Audi', 'Q7', 2019, 'NNN-444-NNN', 'Black', 40000, 80.00, 'Some wear', FALSE),
+(29, 5, 'XOPEL444444444', 'Opel', 'Mokka', 2020, 'OOO-555-OOO', 'Red', 28000, 48.00, 'Good condition', TRUE),
+(30, 6, 'JTOYOT444444444', 'Toyota', 'Corolla', 2021, 'PPP-666-PPP', 'Blue', 18000, 52.00, 'Clean', TRUE),
+(31, 7, 'VF3400444444444', 'Peugeot', '2008', 2018, 'QQQ-777-QQQ', 'Silver', 55000, 35.00, 'Needs service', FALSE),
+(32, 1, 'WAUZZZ666666666', 'Audi', 'TT', 2022, 'RRR-888-RRR', 'White', 7000, 65.00, 'Excellent', TRUE),
+(33, 2, 'XOPEL555555555', 'Opel', 'Grandland', 2023, 'SSS-999-SSS', 'Gray', 2000, 75.00, 'New', TRUE),
+(34, 1, 'JTOYOT555555555', 'Toyota', 'Prius', 2020, 'TTT-000-TTT', 'Blue', 25000, 48.00, 'Hybrid', TRUE),
+(35, 2, 'VF3400555555555', 'Peugeot', '3008', 2021, 'UUU-111-UUU', 'Black', 15000, 62.00, 'Well-maintained', TRUE),
+(36, 3, 'WAUZZZ777777777', 'Audi', 'e-tron', 2023, 'VVV-222-VVV', 'Silver', 1000, 90.00, 'Electric', TRUE),
+(37, 3, 'XOPEL666666666', 'Opel', 'Crossland', 2022, 'WWW-333-WWW', 'Red', 8000, 50.00, 'Good condition', TRUE),
+(38, 4, 'JTOYOT666666666', 'Toyota', 'Supra', 2020, 'XXX-444-XXX', 'Yellow', 10000, 85.00, 'Sports car', TRUE),
+(39, 5, 'VF3400666666666', 'Peugeot', 'Rifter', 2021, 'YYY-555-YYY', 'Green', 12000, 40.00, 'Family car', TRUE)
+------------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------
+Tabela VehicleTypes
+INSERT INTO public."VehicleTypes" ("VehicleTypeId", "VehicleTypeName") VALUES
+(1, "Audi"),
+(2, "Opel"),
+(3, "Toyota"),
+(4, "Peugeot")
+-------------------------------------------------------------
+
+Tabela VehicleImage
+INSERT INTO public."VehicleImages" ("VehicleId", "Description", "IsPrimary", "Image") VALUES
+(15, 'audi', TRUE, NULL),
+(16, 'audi', TRUE, NULL),
+(17, 'audi', TRUE, NULL),
+(18, 'audi', TRUE, NULL),
+(19, 'ds', TRUE, NULL),
+(20, 'sd', TRUE, NULL),
+(21, 'ds', TRUE, NULL),
+(22, 'ds', TRUE, NULL),
+(23, 'ds', TRUE, NULL),
+(24, 'ds', TRUE, NULL),
+(25, 'ds', TRUE, NULL),
+(26, 'ds', TRUE, NULL),
+(27, 'ds', TRUE, NULL),
+(28, 'ds', TRUE, NULL),
+(29, 'ds', TRUE, NULL),
+(30, 'ds', TRUE, NULL),
+(31, 'ds', TRUE, NULL),
+(32, 'ds', TRUE, NULL),
+(33, 'ds', TRUE, NULL),
+(34, 'sd', TRUE, NULL),
+(35, 'ds', TRUE, NULL),
+(36, 'ds', TRUE, NULL),
+(37, 'ds', TRUE, NULL),
+(38, 'sd', TRUE, NULL),
+(39, 'sd', TRUE, NULL);
+-----------------------------------------------------------------------------
+Slike unosite pojedinacno preko Swaggera, metoda je PUT update/images
+
+Tabela Role
+-------------------------------------------------------------
+INSERT INTO public."Role" ("id", "name") VALUES
+(1, "user"),
+(2, "admin")
+-------------------------------------------------------------
+
+
+
+____________________________________________________________
+PAZNJA!!!!!!!!!!!!!
+OVDJE JE PRIMEJR KAKO TREBA DODATI NEKE OD ODREDJENIH USERA KOJE SAM JA ODREDIO PO NJIHOVIM ROLAMA, KADA REGISTRUJETE NOVOG USERA AUTOMATSKI JE NAPRAVLJENO DA SAVE NAPRAVI KAO USERA, ADMINE DODAJITE POSEBNO U BAZU
+_______________________________________________________
+Tabela UserRole
+INSERT INTO public."UserRoles" ("UserId", "RoleId") VALUES
+(26, 1),
+(27, 1),
+(28. 2),
+(29, 1)
+-----------------------------------------------------------------
+
+
+
+
+
+
+

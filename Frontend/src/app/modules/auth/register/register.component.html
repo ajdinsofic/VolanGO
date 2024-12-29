@@ -1,0 +1,208 @@
+<div class="center-form-container">
+  <form class="border p-2 rounded-3">
+    <div class="row g-0">
+      <div class="col text-center p-2 mb-3">
+        <span class="fs-3">Register</span>
+      </div>
+    </div>
+
+    <!-- Wizard Steps Indicator -->
+    <div class="row mb-3">
+      <div class="col d-flex justify-content-around">
+        <span [class.active]="currentStep === 1">Step 1: Personal Details</span>
+        <span [class.active]="currentStep === 2">Step 2: Account Details</span>
+        <span [class.active]="currentStep === 3">Step 3: CAPTCHA</span>
+        <span [class.active]="currentStep === 4">Step 4: Confirmation</span>
+      </div>
+    </div>
+
+    <!-- Step 1: Personal Details -->
+    <div *ngIf="currentStep === 1">
+      <div class="row mb-3">
+        <div class="col">
+          <label for="firstname" class="form-label">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstname"
+            [(ngModel)]="registerRequest.FirstName"
+            name="firstName"
+            required
+          />
+        </div>
+        <div class="col">
+          <label for="lastname" class="form-label">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="lastname"
+            [(ngModel)]="registerRequest.LastName"
+            name="lastName"
+            required
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <label for="DateOfBirth" class="form-label">Date of Birth</label>
+          <input
+            type="date"
+            class="form-control"
+            id="DateOfBirth"
+            [(ngModel)]="registerRequest.DateOfBirth"
+            name="DateOfBirth"
+            required
+          />
+        </div>
+        <div class="col">
+          <label for="gender" class="form-label">Gender</label>
+          <div>
+            <div class="form-check form-check-inline">
+              <input
+                type="radio"
+                class="form-check-input"
+                name="gender"
+                [(ngModel)]="registerRequest.Gender"
+                value="male"
+                id="male"
+                required
+              />
+              <label class="form-check-label" for="male">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                type="radio"
+                class="form-check-input"
+                name="gender"
+                [(ngModel)]="registerRequest.Gender"
+                value="female"
+                id="female"
+                required
+              />
+              <label class="form-check-label" for="female">Female</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <label for="phoneNumber" class="form-label">Phone Number</label>
+          <input
+            type="text"
+            class="form-control"
+            id="phoneNumber"
+            [(ngModel)]="registerRequest.PhoneNumber"
+            name="phoneNumber"
+            required
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2: Account Details -->
+    <div *ngIf="currentStep === 2">
+      <div class="row mb-3">
+        <div class="col">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            [(ngModel)]="registerRequest.Email"
+            name="email"
+            required
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col">
+          <label for="username" class="form-label">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            [(ngModel)]="registerRequest.UserName"
+            name="username"
+            required
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mb-3">
+          <label for="pwd" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="pwd"
+            [(ngModel)]="registerRequest.Password"
+            name="password"
+            required
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: CAPTCHA -->
+    <div *ngIf="currentStep === 3">
+      <div class="row">
+        <div class="col text-center">
+          <ngx-recaptcha2
+            [siteKey]="'6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'"
+            (success)="onCaptchaResolved($event)"
+          ></ngx-recaptcha2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4: Confirmation -->
+    <div *ngIf="currentStep === 4">
+      <div class="row mb-3">
+        <div class="col">
+          <div class="mb-2"><strong>First Name:</strong> {{ registerRequest.FirstName }}</div>
+          <div class="mb-2"><strong>Last Name:</strong> {{ registerRequest.LastName }}</div>
+          <div class="mb-2"><strong>Date of Birth:</strong> {{ registerRequest.DateOfBirth }}</div>
+          <div class="mb-2"><strong>Gender:</strong> {{ registerRequest.Gender }}</div>
+          <div class="mb-2"><strong>Phone Number:</strong> {{ registerRequest.PhoneNumber }}</div>
+          <div class="mb-2"><strong>Email:</strong> {{ registerRequest.Email }}</div>
+          <div class="mb-2"><strong>Username:</strong> {{ registerRequest.UserName }}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="row">
+      <div class="col d-flex justify-content-between">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="previousStep()"
+          [disabled]="currentStep === 1"
+        >
+          Previous
+        </button>
+        <button
+          *ngIf="currentStep < 4"
+          type="button"
+          class="btn btn-primary"
+          (click)="nextStep()"
+        >
+          Next
+        </button>
+        <button
+          *ngIf="currentStep === 4"
+          type="button"
+          class="btn btn-success"
+          [disabled]="!captchaResponse"
+          (click)="onSubmit()"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+      {{ errorMessage }}
+    </div>
+  </form>
+</div>

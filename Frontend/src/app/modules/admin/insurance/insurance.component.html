@@ -1,0 +1,183 @@
+<div class="container mt-4">
+
+
+
+
+  <!-- Insurance Form -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <form [formGroup]="insuranceForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="reservationId" class="form-label">Reservation ID</label>
+            <input
+              type="number"
+              id="reservationId"
+              class="form-control"
+              formControlName="reservationId"
+              required
+            />
+            <div *ngIf="isFieldInvalid('reservationId')">
+              <small class="text-danger">{{ getErrorMessage('reservationId') }}</small>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="insuranceType" class="form-label">Insurance Type</label>
+            <input
+              type="text"
+              id="insuranceType"
+              class="form-control"
+              formControlName="insuranceType"
+              required
+            />
+            <div *ngIf="isFieldInvalid('insuranceType')">
+              <small class="text-danger">{{ getErrorMessage('insuranceType') }}</small>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="cost" class="form-label">Cost</label>
+            <input
+              type="number"
+              id="cost"
+              class="form-control"
+              formControlName="cost"
+              required
+            />
+            <div *ngIf="isFieldInvalid('cost')">
+              <small class="text-danger">{{ getErrorMessage('cost') }}</small>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="provider" class="form-label">Provider</label>
+            <input
+              type="text"
+              id="provider"
+              class="form-control"
+              formControlName="provider"
+              required
+            />
+            <div *ngIf="isFieldInvalid('provider')">
+              <small class="text-danger">{{ getErrorMessage('provider') }}</small>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="startDate" class="form-label">Start Date</label>
+            <input
+              type="date"
+              id="startDate"
+              class="form-control"
+              formControlName="startDate"
+              required
+            />
+            <div *ngIf="isFieldInvalid('startDate')">
+              <small class="text-danger">{{ getErrorMessage('startDate') }}</small>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="endDate" class="form-label">End Date</label>
+            <input
+              type="date"
+              id="endDate"
+              class="form-control"
+              formControlName="endDate"
+              required
+            />
+            <div *ngIf="isFieldInvalid('endDate')">
+              <small class="text-danger">{{ getErrorMessage('endDate') }}</small>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="policyNumber" class="form-label">Policy Number</label>
+          <input
+            type="text"
+            id="policyNumber"
+            class="form-control"
+            formControlName="policyNumber"
+          />
+          <div *ngIf="isFieldInvalid('policyNumber')">
+            <small class="text-danger">{{ getErrorMessage('policyNumber') }}</small>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="termsAndConditions" class="form-label">Terms and Conditions</label>
+          <textarea
+            id="termsAndConditions"
+            class="form-control"
+            formControlName="termsAndConditions"
+            rows="3"
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary me-2" [disabled]="insuranceForm.invalid">
+          {{ isEditMode ? 'Update' : 'Create' }} Insurance
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="resetForm()">Reset</button>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="filter-container m-3">
+    <h4>Filter by Price</h4>
+    <div class="row m-3">
+      <div class="col">
+        <label for="minPrice">Min Price</label>
+        <input
+          type="number"
+          id="minPrice"
+          [(ngModel)]="minPrice"
+          class="form-control"
+          placeholder="Enter min price"
+        />
+      </div>
+      <div class="col">
+        <label for="maxPrice">Max Price</label>
+        <input
+          type="number"
+          id="maxPrice"
+          [(ngModel)]="maxPrice"
+          class="form-control"
+          placeholder="Enter max price"
+        />
+      </div>
+      <div class="col">
+        <button class="btn btn-primary mt-4"  style="margin-right: 10px;" (click)="applyPriceFilter()">Filter</button>
+        <button class="btn btn-secondary mt-4" (click)="clearFilter()">Clear</button>
+      </div>
+    </div>
+  </div>
+
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Reservation ID</th>
+      <th>Type</th>
+      <th>Cost</th>
+      <th>Provider</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let insurance of filteredInsurances">
+      <td>{{ insurance.insuranceId }}</td>
+      <td>{{ insurance.reservationId }}</td>
+      <td>{{ insurance.insuranceType }}</td>
+      <td>{{ insurance.cost }}</td>
+      <td>{{ insurance.provider }}</td>
+      <td>{{ insurance.startDate | date: 'dd.MM.yyyy HH:mm' }}</td>
+      <td>{{ insurance.endDate | date: 'dd.MM.yyyy HH:mm' }}</td>
+      <td>
+        <button class="btn btn-warning btn-sm m-1" (click)="onEdit(insurance)">Edit</button>
+        <button class="btn btn-danger btn-sm" (click)="onDelete(insurance.insuranceId)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
