@@ -1,0 +1,18 @@
+<div class="container-fluid counter bg-secondary py-5">
+  <div class="container py-5">
+    <div class="row g-5">
+      <div *ngFor="let counter of counters" class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" [attr.data-wow-delay]="counter.delay">
+        <div class="counter-item text-center">
+          <div class="counter-item-icon mx-auto">
+            <i [class]="counter.icon + ' fa-2x'"></i>
+          </div>
+          <div class="counter-counting my-3">
+            <span class="text-white fs-2 fw-bold">{{ counter.value }}</span>
+            <span class="h1 fw-bold text-white">+</span>
+          </div>
+          <h4 class="text-white mb-0">{{ counter.label | translate }}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="verification-container">
+  <h2>Email Verification</h2>
+  <p>An email with a verification code has been sent to: <b>{{ email }}</b></p>
+
+  <div>
+    <label for="code">Enter Verification Code:</label>
+    <input type="text" id="code" [(ngModel)]="code" maxlength="6" placeholder="Enter code" />
+  </div>
+
+  <button (click)="verifyCode()">Verify</button>
+
+  <div *ngIf="message" class="message">{{ message }}</div>
+
+  <div *ngIf="canResendCode">
+    <button (click)="resendCode()">Resend Code</button>
+  </div>
+  <div *ngIf="!canResendCode" class="countdown">
+    Resend code in {{ countdown }} seconds.
+  </div>
+</div>

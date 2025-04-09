@@ -1,0 +1,27 @@
+<div class="container-fluid steps py-5">
+  <div class="container py-5">
+    <div
+      class="text-center mx-auto pb-5 wow fadeInUp"
+      data-wow-delay="0.1s"
+      style="max-width: 800px;"
+    >
+      <h1 class="display-5 text-capitalize text-white mb-3">
+        {{ 'centralProcess' | translate }} <span class="text-primary">{{ 'process' | translate }}</span>
+      </h1>
+      <p class="mb-0 text-white">{{ 'sectionDescription' | translate }}</p>
+    </div>
+    <div class="row g-4">
+      <div
+        class="col-lg-4"
+        *ngFor="let step of steps; let i = index"
+        [ngClass]="{ 'wow fadeInUp': true, 'fadeInUp': true }"
+      >
+        <div class="steps-item p-4 mb-4">
+          <h4>{{ step.titleKey | translate }}</h4>
+          <p class="mb-0">{{ step.descriptionKey | translate }}</p>
+          <div class="setps-number">{{ step.number | number: '1.0' }}.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

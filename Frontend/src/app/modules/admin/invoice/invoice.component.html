@@ -1,0 +1,108 @@
+<div class="container" style="min-height: 100vh;">
+  <!-- Form Section -->
+  <div class="d-flex justify-content-center m-3">
+    <form [formGroup]="invoiceForm" (ngSubmit)="onSubmit()" class="w-50 p-4 shadow rounded" style="background-color: #f9f9f9;">
+      <div class="form-group mb-3">
+        <label for="reservationId">Reservation ID</label>
+        <input type="number" id="reservationId" class="form-control" formControlName="reservationId" />
+        <div *ngIf="isFieldInvalid('reservationId')">
+          <small class="text-danger">{{ getErrorMessage('reservationId') }}</small>
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="invoiceDate">Invoice Date</label>
+        <input type="date" id="invoiceDate" class="form-control" formControlName="invoiceDate" />
+        <div *ngIf="isFieldInvalid('invoiceDate')">
+          <small class="text-danger">{{ getErrorMessage('invoiceDate') }}</small>
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" class="form-control" formControlName="amount" />
+        <div *ngIf="isFieldInvalid('amount')">
+          <small class="text-danger">{{ getErrorMessage('amount') }}</small>
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="paymentMethod">Payment Method</label>
+        <input type="text" id="paymentMethod" class="form-control" formControlName="paymentMethod" />
+        <div *ngIf="isFieldInvalid('paymentMethod')">
+          <small class="text-danger">{{ getErrorMessage('paymentMethod') }}</small>
+        </div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="status">Status</label>
+        <input type="text" id="status" class="form-control" formControlName="status" />
+        <div *ngIf="isFieldInvalid('status')">
+          <small class="text-danger">{{ getErrorMessage('status') }}</small>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary">{{ isEditMode ? 'Update Invoice' : 'Add Invoice' }}</button>
+        <button type="button" class="btn btn-secondary" (click)="resetForm()">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+
+  <h4>Filter by Amount</h4>
+  <div class="row m-3">
+    <div class="col">
+      <label for="minAmount">Min Amount</label>
+      <input
+        type="number"
+        id="minAmount"
+        [(ngModel)]="minAmount"
+        class="form-control"
+        placeholder="Enter min amount"
+      />
+    </div>
+    <div class="col">
+      <label for="maxAmount">Max Amount</label>
+      <input
+        type="number"
+        id="maxAmount"
+        [(ngModel)]="maxAmount"
+        class="form-control"
+        placeholder="Enter max amount"
+      />
+    </div>
+    <div class="col">
+      <button class="btn btn-primary mt-4" style="margin-right: 10px;" (click)="applyAmountFilter()">Filter</button>
+      <button class="btn btn-secondary mt-4" (click)="clearFilter()">Clear</button>
+    </div>
+  </div>
+
+  <!-- Table Section -->
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-light">
+      <tr>
+        <th>ID</th>
+        <th>Reservation ID</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Payment Method</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let invoice of filteredInvoices">
+        <td>{{ invoice.invoiceId }}</td>
+        <td>{{ invoice.reservationId }}</td>
+        <td>{{ invoice.invoiceDate | date: 'dd.MM.yyyy HH:mm' }}</td>
+        <td>{{ invoice.amount }}</td>
+        <td>{{ invoice.paymentMethod }}</td>
+        <td>{{ invoice.status }}</td>
+        <td>
+          <button class="btn btn-warning btn-sm me-2" (click)="onEdit(invoice)">Edit</button>
+          <button class="btn btn-danger btn-sm" (click)="onDelete(invoice.invoiceId)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</div>

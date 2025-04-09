@@ -1,0 +1,19 @@
+<div class="container-fluid service py-5">
+  <div class="container py-5">
+    <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+      <h1 class="display-5 text-capitalize mb-3">{{'centralservices1'| translate}} <span class="text-primary">{{'centralServices'| translate}}</span></h1>
+      <p class="mb-0">{{ sectionDescription | translate }}</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4" *ngFor="let service of services; let i = index" [ngClass]="{ 'wow fadeInUp': true, 'fadeInUp': true }" [attr.data-wow-delay]="(i * 0.2) + 's'">
+        <div class="service-item p-4">
+          <div class="service-icon mb-4">
+            <i class="fa" [ngClass]="service.icon" style="font-size: 2rem;"></i>
+          </div>
+          <h5 class="mb-3">{{ service.title | translate }}</h5>
+          <p class="mb-0">{{ service.description | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,364 @@
+<div class="container">
+  <!-- Filter Section -->
+  <div class="filter-section">
+    <h3>Filter Cars</h3>
+
+    <label for="year">Car type</label>
+    <select id="year" [(ngModel)]="filter.selectedCar">
+      <option value=" ">All Cars</option>
+      <option value="Audi">Audi</option>
+      <option value="Opel">Opel</option>
+      <option value="Toyota">Toyota</option>
+      <option value="Peugeot">Peugeot</option>
+    </select>
+
+    <!-- Year Filter -->
+    <label for="year">Year</label>
+    <select id="year" [(ngModel)]="filter.year">
+      <option value=" ">All Years</option>
+      <option value="2024">2024</option>
+      <option value="2023">2023</option>
+      <option value="2022">2022</option>
+      <option value="2021">2021</option>
+    </select>
+
+    <!-- Color Filter -->
+    <label for="color">Color</label>
+    <select id="color" [(ngModel)]="filter.color">
+      <option value=" ">All Colors</option>
+      <option value="Red">Red</option>
+      <option value="Blue">Blue</option>
+      <option value="Silver">Silver</option>
+      <option value="Black">Black</option>
+      <option value="White">White</option>
+    </select>
+
+    <!-- Date and Time Section -->
+    <div class="DateAndTimeContainer">
+      <!-- Change Date and Time Button -->
+      <button
+        class="toggle"
+        (click)="toggleDateTimeVisibility()"
+        title="Otvara model za promjenu datuma i vremena"
+      >
+        Change Date and Time
+      </button>
+
+      <!-- Show Pickup and DropOff Date and Time if the button is clicked -->
+      <div *ngIf="showDateTimeFields">
+        <!-- Pickup Date and Time -->
+        <div class="pickup-section">
+          <label for="PickUpDate">Pick Up Date & Time</label>
+          <div class="date-time-wrapper">
+            <input
+              [(ngModel)]="filter.PickUpDate"
+              (ngModelChange)="ProvjeraDatuma()"
+              name="PickUpDate"
+              id="PickUpDate"
+              required
+              class="form-control"
+              type="date"
+              placeholder="Enter Pickup Date"
+              #PickUpDate="ngModel"
+            />
+            <select
+              [(ngModel)]="filter.PickUpTime"
+              (ngModelChange)="ProvjeraDatuma()"
+              class="form-select ms-3"
+              aria-label="Pickup Time"
+              name="PickUpTime"
+              id="PickUpTime"
+              required
+              #PickUpTime="ngModel"
+            >
+              <option selected>10:00</option>
+              <option
+                *ngFor="
+                  let time of [
+                    '11:00',
+                    '12:00',
+                    '13:00',
+                    '14:00',
+                    '15:00',
+                    '16:00',
+                    '17:00',
+                    '18:00',
+                    '19:00',
+                    '20:00',
+                    '21:00',
+                    '22:00'
+                  ]
+                "
+              >
+                {{ time }}
+              </option>
+            </select>
+          </div>
+        </div>
+
+        <!-- DropOff Date and Time -->
+        <div class="dropoff-section">
+          <label for="DropOffDate">Drop Off Date & Time</label>
+          <div class="date-time-wrapper">
+            <input
+              [(ngModel)]="filter.DropOffDate"
+              (ngModelChange)="ProvjeraDatuma()"
+              name="DropOffDate"
+              id="DropOffDate"
+              required
+              class="form-control"
+              type="date"
+              placeholder="Enter DropOff Date"
+              #DropOffDate="ngModel"
+            />
+
+            <select
+              [(ngModel)]="filter.DropOffTime"
+              (ngModelChange)="ProvjeraDatuma()"
+              class="form-select ms-3"
+              aria-label="DropOff Time"
+              name="DropOffTime"
+              id="DropOffTime"
+              required
+              #DropOffTime="ngModel"
+            >
+              <option selected>10:00</option>
+              <option
+                *ngFor="
+                  let time of [
+                    '11:00',
+                    '12:00',
+                    '13:00',
+                    '14:00',
+                    '15:00',
+                    '16:00',
+                    '17:00',
+                    '18:00',
+                    '19:00',
+                    '20:00',
+                    '21:00',
+                    '22:00'
+                  ]
+                "
+              >
+                {{ time }}
+              </option>
+            </select>
+          </div>
+          <div *ngIf="!aReDatesOk" class="provjeraDatuma">
+            {{ this.errorMessage }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter Button -->
+    <button
+      (click)="applyFilters()"
+      title="Dugme koje primjenjuje filtraciju"
+      [disabled]="!aReDatesOk"
+      [class.disableButton]="!aReDatesOk"
+    >
+      Apply Filters
+    </button>
+  </div>
+
+  <!-- Product Container -->
+  <div class="product-container" *ngIf="vehicles.length > 0">
+    <div class="product-card" *ngFor="let vehicle of vehicles">
+      <div *ngIf="vehicle.image">
+        <img
+          [src]="'data:image/jpeg;base64,' + vehicle.image"
+          alt="Vehicle Image"
+        />
+      </div>
+      <h3>{{ vehicle.name }}</h3>
+      <p>Price per Day: ${{ vehicle.pricePerDay }}</p>
+      <button
+        class="btn btn-primary"
+        (click)="openModal(vehicle)"
+        title="Dugme koje daje vise informacija o autu"
+      >
+        More Info
+      </button>
+    </div>
+  </div>
+
+  <div class="car-details-modal" *ngIf="isModalOpen">
+    <div class="car-details-container">
+      <span class="close-btn" (click)="closeModal()">&times;</span>
+      <img
+        class="car-image"
+        [src]="'data:image/jpeg;base64,' + selectedCar.image"
+        alt="Car Image"
+      />
+      <div class="car-info">
+        <h2>{{ selectedCar.name }}</h2>
+
+        <div class="car-details">
+          <div class="detail-item">
+            <span class="detail-label">VIN:</span>
+            <span class="detail-value">{{ selectedCar.description.VIN }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Model:</span>
+            <span class="detail-value">{{
+              selectedCar.description.Model
+            }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Make:</span>
+            <span class="detail-value">{{ selectedCar.description.Make }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Year:</span>
+            <span class="detail-value">{{ selectedCar.description.Year }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Mileage:</span>
+            <span class="detail-value">{{
+              selectedCar.description.Mileage
+            }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="detail-label">Description:</span>
+            <span class="detail-value">{{
+              selectedCar.description.Description
+            }}</span>
+          </div>
+        </div>
+
+        <p class="car-price">Price per Day: ${{ selectedCar.pricePerDay }}</p>
+
+        <div class="buttons-two">
+          <button class="save-to-cart" (click)="SaveToCart()">
+            Save to Cart
+          </button>
+        </div>
+      </div>
+
+      <div class="car-details-modal" *ngIf="isModalOpen">
+        <div class="car-details-container">
+          <span class="close-btn" (click)="closeModal()">&times;</span>
+
+          <!--          promjena-->
+          <div class="gallery-container" *ngIf="selectedCarImages.length > 0">
+            <!--            dodao zoom-->
+            <div
+              class="main-image"
+              (mousemove)="onMouseMove($event)"
+              (mouseleave)="onMouseLeave()"
+            >
+              <img
+                [src]="selectedImage"
+                alt="Main Car Image"
+                class="zoom-image"
+                #zoomImage
+              />
+            </div>
+
+            <div class="thumbnail-images">
+              <img
+                *ngFor="let img of selectedCarImages"
+                [src]="img"
+                alt="Car Thumbnail"
+                (click)="selectImage(img)"
+                [class.selected]="img === selectedImage"
+              />
+            </div>
+          </div>
+
+          <div class="car-info">
+            <h2>{{ selectedCar.name }}</h2>
+
+            <div class="car-details">
+              <div class="detail-item">
+                <span class="detail-label">VIN:</span>
+                <span class="detail-value">{{
+                  selectedCar.description.VIN
+                }}</span>
+              </div>
+
+              <div class="detail-item">
+                <span class="detail-label">Model:</span>
+                <span class="detail-value">{{
+                  selectedCar.description.Model
+                }}</span>
+              </div>
+
+              <div class="detail-item">
+                <span class="detail-label">Make:</span>
+                <span class="detail-value">{{
+                  selectedCar.description.Make
+                }}</span>
+              </div>
+
+              <div class="detail-item">
+                <span class="detail-label">Year:</span>
+                <span class="detail-value">{{
+                  selectedCar.description.Year
+                }}</span>
+              </div>
+
+              <div class="detail-item">
+                <span class="detail-label">Mileage:</span>
+                <span class="detail-value">{{
+                  selectedCar.description.Mileage
+                }}</span>
+              </div>
+
+              <div class="detail-item">
+                <span class="detail-label">Description:</span>
+                <span class="detail-value">{{
+                  selectedCar.description.Description
+                }}</span>
+              </div>
+            </div>
+
+            <p class="car-price">
+              Price per Day: ${{ selectedCar.pricePerDay }}
+            </p>
+
+            <div class="buttons-two">
+              <button
+                class="save-to-cart"
+                (click)="SaveToCart()"
+                title="Dugme koje spasava u korpu"
+              >
+                Save to Cart
+              </button>
+              <button
+                class="reserve"
+                (click)="reserveNow()"
+                title="Dugme koje zsvrsava rezervaciju i vodi na placanje"
+              >
+                Reserve Now
+              </button>
+            </div>
+
+            <div class="messageLog" *ngIf="messageAlert">
+              <p routerLink="/auth/login">
+                You need to be logged in in order to reserve and save
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pagination">
+  <button (click)="goToPreviousPage()" [disabled]="isPreviousDisabled">
+    Previous
+  </button>
+  <span>Page {{ currentPage }} of {{ totalPage }}</span>
+  <button (click)="goToNextPage()" [disabled]="isNextDisabled">Next</button>
+</div>
+
+<app-move-to-cart />

@@ -1,0 +1,265 @@
+{
+  "home": "Home",
+  "about1": "About Us",
+  "service": "Service",
+  "blog": "Blog",
+  "enterPick": "Enter Pickup Location",
+  "enterDrop": "Select a Drop Off Location",
+  "pages": "Pages",
+  "feature": "Our Feature",
+  "cars": "Our Cars",
+  "team": "Our Team",
+  "contact": "Contact",
+  "findLocation": "Marka Marulica 7",
+  "phone": "+38761554667",
+  "email": "volanGo@gmail.com",
+  "login": "Login",
+  "register": "Register",
+  "userOptions": "User Options",
+  "viewProfile": "View Profile",
+  "logout": "Logout",
+  "english": "English",
+  "french": "French",
+  "spanish": "Spanish",
+
+  "viewCars": "VIEW OUR CARS",
+  "selectCar": "Select Your Car type",
+  "pickup": "Pick Up",
+  "pickupPlaceholder": "Enter Pickup Location",
+  "dropOff": "Drop Off",
+  "dropOffPlaceholder": "Enter a City or Airport",
+  "needDifferentDrop": "Need a different drop-off location?",
+  "pickupDate": "Pick Up Date",
+  "dropOffDate": "Drop Off Date",
+  "viewNow": "View now",
+  "fillFields": "Please fill in all required fields correctly.",
+  "featureLeft1Title": "First Class Services",
+  "featureLeft1Desc": "We provide premium services to ensure a comfortable experience.",
+  "featureLeft2Title": "24/7 Road Assistance",
+  "featureLeft2Desc": "Our team is available around the clock for your assistance.",
+  "featureRight1Title": "Quality at Minimum",
+  "featureRight1Desc": "Enjoy high-quality services at the most affordable rates.",
+  "featureRight2Title": "Free Pick-Up & Drop-Off",
+  "featureRight2Desc": "We offer free pick-up and drop-off for your convenience.",
+
+  "about": {
+    "title": "Central",
+    "subtitle": "About",
+    "description": "VolanGo is a forward-thinking transportation company focused on delivering convenient, safe, and affordable rides to users everywhere. We aim to revolutionize urban mobility by providing a seamless experience through technology, offering both efficiency and sustainability. Our goal is to make travel simple, accessible, and environmentally friendly for all. We prioritize customer satisfaction and safety in every journey we provide.",
+    "vision": {
+      "title": "Our Vision",
+      "description": "To revolutionize urban transportation by creating a seamless, sustainable, and user-friendly experience for travelers everywhere."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "description": "To provide safe, affordable, and reliable rides that prioritize convenience, customer satisfaction, and environmental responsibility."
+    },
+    "additional": "Did you know that VolanGo's eco-friendly ride options help reduce your carbon footprint, making every journey a step towards a greener future? So, you’re not just getting from point A to point B—you’re helping the planet too!",
+    "experience": {
+      "years": "17",
+      "title": "Years Of Experience"
+    },
+    "check1": "Reliability",
+    "check2": "Innovation",
+    "check3": "Efficiency",
+    "check4": "Safety",
+    "moreButton": "More About Us",
+    "founder": {
+      "name": "William Burgess",
+      "title": "Carveo Founder"
+    }
+  },
+  "Happy Clients": "Happy Clients",
+  "Number of Cars": "Number of Cars",
+  "Car Centers": "Car Centers",
+  "Total kilometers": "Total kilometers",
+
+
+  "centralservices1": "Central",
+  "centralServices": " Services",
+  "centralServicesDescription": "Central Services Description",
+  "phoneReservation": "Phone Reservation",
+  "phoneReservationDescription": "Reserve your car quickly and easily with just a call to our customer service team, no app needed.",
+  "specialRates": "Special Rates",
+  "specialRatesDescription": "Enjoy exclusive discounts and special offers tailored to your travel needs and budget.",
+  "oneWayRental": "One Way Rental",
+  "oneWayRentalDescription": "Pick up your car at one location and drop it off at another, with no extra hassle.",
+  "lifeInsurance": "Life Insurance",
+  "lifeInsuranceDescription": "Drive with peace of mind knowing you’re covered with our comprehensive life insurance options.",
+  "cityToCity": "City to City",
+  "cityToCityDescription": "Travel seamlessly between cities with our reliable and convenient city-to-city car rental service.",
+  "freeRides": "Free Rides",
+  "freeRidesDescription": "Enjoy the added benefit of free rides to and from the rental location with our convenient service.",
+  "vehicleCategoriesTitle": "Vehicle Categories",
+  "vehicleCategoriesDescription": "Explore our range of vehicles to suit every need, from city cars to luxury rides.",
+  "mercedesBenzR3": "Mercedes Benz R3",
+  "mercedesBenzR3Review": "4.5 Review",
+  "mercedesBenzR3Price": "$99:00/Day",
+  "mercedesBenzR3Details": ["4 Seat", "AT/MT", "Petrol", "2015", "AUTO", "27K"],
+  "toyotaCorollaCross": "Toyota Corolla Cross",
+  "toyotaCorollaCrossReview": "3.5 Review",
+  "toyotaCorollaCrossPrice": "$128:00/Day",
+  "toyotaCorollaCrossDetails": ["4 Seat", "AT/MT", "Petrol", "2015", "AUTO", "27K"],
+  "teslaModelSPlaid": "Tesla Model S Plaid",
+  "teslaModelSPlaidReview": "3.8 Review",
+  "teslaModelSPlaidPrice": "$170:00/Day",
+  "teslaModelSPlaidDetails": ["4 Seat", "AT/MT", "Petrol", "2015", "AUTO", "27K"],
+  "hyundaiKonaElectric": "Hyundai Kona Electric",
+  "hyundaiKonaElectricReview": "4.8 Review",
+  "hyundaiKonaElectricPrice": "$187:00/Day",
+  "hyundaiKonaElectricDetails": ["4 Seat", "AT/MT", "Petrol", "2015", "AUTO", "27K"],
+  "bookNow": "Book Now",
+  "centralProcess": "Central",
+  "process": "Process",
+  "sectionDescription": "VolanGo is known for its simple and quick car rental process, making it easy for users to get the car they need in just three steps.",
+  "comeInContact": "Choose the date and car type",
+  "comeInContactDescription": "Simply select your desired date and car model, whether it's for a short trip or a longer journey.",
+  "chooseACar": "Add the car to your cart",
+  "chooseACarDescription": "Once you've made your selection, just add the car to your cart for an easy and organized booking process.",
+  "enjoyDriving": "Proceed to payment",
+  "enjoyDrivingDescription": "Finish your booking by choosing your preferred payment method, and you're ready to hit the road with no hassle.",
+  "centralBlog": "Central",
+  "news": "Blog & News",
+  "blogDescription": "Welcome to the VolanGo Blog, your source for tips, updates, and travel advice. Here, you'll find everything from car rental tips to eco-friendly travel options. Stay tuned for news and insights to make your VolanGo experience even better.",
+  "rentalFinesTitle": "Rental Cars: I want to rent a BMW",
+  "rentalFinesDescription": "I'm thinking about renting a BMW for my next trip. How does the driving experience compare to other luxury cars in your fleet.",
+  "rentalCostTitle": "Rental Cars: I want to rent a Mercedes",
+  "rentalCostDescription": "I’ve always loved Mercedes cars! Does VolanGo offer any specific Mercedes models with advanced tech features for a more comfortable ride.",
+  "requiredDocsTitle": "Document Required for Car Rental",
+  "requiredDocsDescription": "I'm new to renting cars with VolanGo. Can you explain how I can choose the best car for my needs, especially for a long road trip.",
+  "readMore": "Read More",
+  "comments": "Comments",
+  "rentYourCar": "Rent Your Car",
+  "interestedInRenting": "Interested in Renting?",
+  "dontHesitateMessage": "Don't hesitate and send us a message.",
+  "whatsApp": "WhatsApp",
+  "contactUs": "Contact Us",
+  "TEAM": {
+    "SUPPORT_SPECIALIST": "Support Specialist",
+    "CUSTOMER_MANAGER": "Customer Manager",
+    "TECHNICAL_SUPPORT": "Technical Support",
+    "BILLING_SPECIALIST": "Billing Specialist",
+    "SOCIAL_LINKS": {
+      "FACEBOOK": "Facebook",
+      "TWITTER": "Twitter",
+      "INSTAGRAM": "Instagram",
+      "LINKEDIN": "LinkedIn"
+    }
+  },
+  "CONTACT_US": "Contact Us",
+  "WATCH_WHATSAPP": "Watch WhatsApp",
+  "SUPPORT_CENTER": {
+    "TITLE": "Customer Support Center"
+  },
+  "FOOTER": {
+    "ABOUT_US": {
+      "TITLE": "About Us",
+      "DESCRIPTION": "VolanGo is your go-to app for quick, hassle-free, and eco-friendly car rentals—where convenience meets adventure."
+    },
+    "SUBSCRIBE": {
+      "PLACEHOLDER": "Enter your email",
+      "BUTTON": "Subscribe"
+    },
+    "QUICK_LINKS": {
+      "TITLE": "Quick Links",
+      "ABOUT": "About",
+      "CARS": "Cars",
+      "TEAM": "Team",
+      "CONTACT_US": "Contact Us"
+    },
+    "BUSINESS_HOURS": {
+      "TITLE": "Business Hours",
+      "MON_FRI": {
+        "LABEL": "Mon - Friday:",
+        "TIME": "09.00 am to 07.00 pm"
+      },
+      "SATURDAY": {
+        "LABEL": "Saturday:",
+        "TIME": "10.00 am to 05.00 pm"
+      },
+      "VACATION": {
+        "LABEL": "Vacation:",
+        "TIME": "All Sunday is our vacation"
+      }
+    },
+    "CONTACT_INFO": {
+      "TITLE": "Contact Info",
+      "ADDRESS": "Marka Marulica 7, BIH, Sarajevo",
+      "EMAIL": "volanGo@gmail.com",
+      "PHONE": "+38761554667",
+      "FAX": "+38733447448"
+    }
+  },
+  "header": {
+    "title": "Contact Us",
+    "home": "Home",
+    "contact": "Contact"
+  },
+  "contactSection": {
+    "intro": {
+      "title": "Contact Us",
+      "message": "The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done.",
+      "download": "Download Now"
+    },
+    "address": "Address",
+    "email": "Mail Us",
+    "phone": "Telephone",
+    "website": "Your Website",
+    "sendMessage": "Send Your Message",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "phone": "Your Phone",
+      "project": "Your Project",
+      "subject": "Subject",
+      "message": "Message",
+      "button": "Send Message"
+    },
+    "branchTitle": "Our Branch",
+    "branches": {
+      "address": "Address:",
+      "phone": "Telephone:"
+    },
+    "socialMedia": {
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "contactSection2": {
+    "sendMessage": "Send Your Message",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "phone": "Your Phone",
+      "project": "Your Project",
+      "subject": "Subject",
+      "message": "Message",
+      "button": "Send Message"
+    },
+    "branches": {
+      "address": "Address:",
+      "phone": "Telephone:"
+    },
+    "branchTitle": "Our Branch"
+  },
+  "counters": {
+    "Happy Clients": "Happy Clients",
+    "Number of Cars": "Number of Cars",
+    "Car Centers": "Car Centers",
+    "Total kilometers": "Total kilometers"
+  },
+
+  "vehicleCategories": "Vehicle",
+  "categories": "Categories",
+  "vehicleDescription": "Explore just a peek of our diverse vehicle categories, from sleek luxury cars to spacious SUVs and eco-friendly options. Whether you're looking for style, comfort, or practicality, we’ve got the perfect ride for every occasion. Start your journey with VolanGo and choose the car that suits your needs.",
+  "bookNow1": "Book Now",
+
+  "carousel": {
+    "heading1": "Get 15% off your rental! Choose Your Model",
+    "subheading1": "Treat yourself in USA",
+    "heading2": "Get 15% off your rental Plan your trip now",
+    "subheading2": "Treat yourself in USA"
+  }
+}

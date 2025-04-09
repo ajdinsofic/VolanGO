@@ -1,0 +1,262 @@
+{
+  "home": "Inicio",
+  "about1": "Sobre nosotros",
+  "service": "Servicio",
+  "blog": "Blog",
+  "enterPick": "Ingresa la ubicación de recogida",
+  "enterDrop": "Selecciona un lugar de entrega",
+  "pages": "Páginas",
+  "feature": "Nuestras características",
+  "cars": "Nuestros coches",
+  "team": "Nuestro equipo",
+  "contact": "Contacto",
+  "findLocation": "Marka Marulica 7",
+  "phone": "+38760554667",
+  "email": "volanGo@gmail.com",
+  "login": "Iniciar sesión",
+  "register": "Registrarse",
+  "userOptions": "Opciones del usuario",
+  "viewProfile": "Ver perfil",
+  "logout": "Cerrar sesión",
+  "english": "Inglés",
+  "french": "Francés",
+  "spanish": "Español",
+  "viewCars": "VER NUESTROS COCHES",
+  "selectCar": "Seleccione el tipo de coche",
+  "pickup": "Recoger",
+  "pickupPlaceholder": "Ingrese la ubicación de recogida",
+  "dropOff": "Dejar",
+  "dropOffPlaceholder": "Ingrese una ciudad o un aeropuerto",
+  "needDifferentDrop": "¿Necesita una ubicación de entrega diferente?",
+  "pickupDate": "Fecha de recogida",
+  "dropOffDate": "Fecha de entrega",
+  "viewNow": "Ver ahora",
+  "fillFields": "Por favor, complete todos los campos obligatorios correctamente.",
+  "featureLeft1Title": "Servicios de primera clase",
+  "featureLeft1Desc": "Ofrecemos servicios premium para garantizar una experiencia cómoda.",
+  "featureLeft2Title": "Asistencia en carretera 24/7",
+  "featureLeft2Desc": "Nuestro equipo está disponible las 24 horas del día para ayudarle.",
+  "featureRight1Title": "Calidad al mínimo",
+  "featureRight1Desc": "Disfrute de servicios de alta calidad a precios asequibles.",
+  "featureRight2Title": "Recogida y entrega gratuita",
+  "featureRight2Desc": "Ofrecemos recogida y entrega gratuita para su conveniencia.",
+  "about": {
+    "title": "Central",
+    "subtitle": "Acerca de",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate!",
+    "vision": {
+      "title": "Nuestra Visión",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    "mission": {
+      "title": "Nuestra Misión",
+      "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit."
+    },
+    "additional": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae, aliquam ipsum. Sed suscipit dolorem libero sequi aut natus debitis reprehenderit facilis quaerat similique, est at in eum.",
+    "experience": {
+      "years": "17",
+      "title": "Años de experiencia"
+    },
+    "check1": "Morbi tristique senectus",
+    "check2": "A scelerisque purus",
+    "check3": "Dictumst vestibulum",
+    "check4": "Dio aenean sed adipiscing",
+    "moreButton": "Más sobre nosotros",
+    "founder": {
+      "name": "William Burgess",
+      "title": "Fundador de Carveo"
+    }
+  },
+
+  "Happy Clients": "Clientes Felices",
+  "Number of Cars": "Número de Coches",
+  "Car Centers": "Centros de Autos",
+  "Total kilometers": "Kilómetros Totales",
+
+  "centralservices1": "Servicios",
+  "centralServices": " Centrales",
+  "centralServicesDescription": "Descripción de los servicios centrales",
+  "phoneReservation": "Reserva telefónica",
+  "phoneReservationDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ipsam quasi quibusdam ipsa perferendis iusto?",
+  "specialRates": "Tarifas especiales",
+  "specialRatesDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ipsam quasi quibusdam ipsa perferendis iusto?",
+  "oneWayRental": "Alquiler de ida",
+  "oneWayRentalDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ipsam quasi quibusdam ipsa perferendis iusto?",
+  "lifeInsurance": "Seguro de vida",
+  "lifeInsuranceDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ipsam quasi quibusdam ipsa perferendis iusto?",
+  "cityToCity": "De ciudad a ciudad",
+  "cityToCityDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ipsam quasi quibusdam ipsa perferendis iusto?",
+  "freeRides": "Viajes gratis",
+  "freeRidesDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit ipsam quasi quibusdam ipsa perferendis iusto?",
+  "vehicleCategoriesTitle": "Categorías de Vehículos",
+  "vehicleCategoriesDescription": "Explore nuestra gama de vehículos para cada necesidad, desde coches urbanos hasta lujosos.",
+  "mercedesBenzR3": "Mercedes Benz R3",
+  "mercedesBenzR3Review": "4.5 Reseña",
+  "mercedesBenzR3Price": "$99:00/Día",
+  "mercedesBenzR3Details": ["4 Asientos", "AT/MT", "Gasolina", "2015", "AUTO", "27K"],
+  "toyotaCorollaCross": "Toyota Corolla Cross",
+  "toyotaCorollaCrossReview": "3.5 Reseña",
+  "toyotaCorollaCrossPrice": "$128:00/Día",
+  "toyotaCorollaCrossDetails": ["4 Asientos", "AT/MT", "Gasolina", "2015", "AUTO", "27K"],
+  "teslaModelSPlaid": "Tesla Model S Plaid",
+  "teslaModelSPlaidReview": "3.8 Reseña",
+  "teslaModelSPlaidPrice": "$170:00/Día",
+  "teslaModelSPlaidDetails": ["4 Asientos", "AT/MT", "Gasolina", "2015", "AUTO", "27K"],
+  "hyundaiKonaElectric": "Hyundai Kona Electric",
+  "hyundaiKonaElectricReview": "4.8 Reseña",
+  "hyundaiKonaElectricPrice": "$187:00/Día",
+  "hyundaiKonaElectricDetails": ["4 Asientos", "AT/MT", "Gasolina", "2015", "AUTO", "27K"],
+  "bookNow": "Reservar Ahora",
+  "centralProcess": "Central",
+  "process": "Proceso",
+  "sectionDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio.",
+  "comeInContact": "Ponte en Contacto",
+  "comeInContactDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolorem!",
+  "chooseACar": "Elige un Coche",
+  "chooseACarDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolorem!",
+  "enjoyDriving": "Disfruta Conduciendo",
+  "enjoyDrivingDescription": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolorem!",
+  "centralBlog": "Central",
+  "news": "Blog y Noticias",
+  "blogDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio.",
+  "rentalFinesTitle": "Coches de alquiler: ¿Cómo comprobar multas?",
+  "rentalFinesDescription": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.",
+  "rentalCostTitle": "Costo de alquiler de coches deportivos y otros",
+  "rentalCostDescription": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.",
+  "requiredDocsTitle": "Documentos requeridos para alquilar un coche",
+  "requiredDocsDescription": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius libero soluta impedit eligendi? Quibusdam, laudantium.",
+  "readMore": "Leer Más",
+  "comments": "Comentarios",
+  "rentYourCar": "Alquila tu coche",
+  "interestedInRenting": "¿Interesado en alquilar?",
+  "dontHesitateMessage": "No dudes en enviarnos un mensaje.",
+  "whatsApp": "WhatsApp",
+  "contactUs": "Contáctanos",
+  "TEAM": {
+  "SUPPORT_SPECIALIST": "Especialista en soporte",
+  "CUSTOMER_MANAGER": "Gerente de clientes",
+  "TECHNICAL_SUPPORT": "Soporte técnico",
+  "BILLING_SPECIALIST": "Especialista en facturación",
+  "SOCIAL_LINKS": {
+    "FACEBOOK": "Facebook",
+    "TWITTER": "Twitter",
+    "INSTAGRAM": "Instagram",
+    "LINKEDIN": "LinkedIn"
+  }
+},
+  "CONTACT_US": "Contáctenos",
+  "WATCH_WHATSAPP": "Ver WhatsApp",
+  "SUPPORT_CENTER": {
+    "TITLE": "Centro de soporte al cliente"
+  },
+  "FOOTER": {
+    "ABOUT_US": {
+      "TITLE": "Sobre Nosotros",
+      "DESCRIPTION": "Dolor amet sit justo amet elitr clita ipsum elitr est. Lorem ipsum dolor sit amet, consectetur adipiscing elit consectetur adipiscing elit."
+    },
+    "SUBSCRIBE": {
+      "PLACEHOLDER": "Introduce tu correo electrónico",
+      "BUTTON": "Suscribirse"
+    },
+    "QUICK_LINKS": {
+      "TITLE": "Enlaces Rápidos",
+      "ABOUT": "Sobre Nosotros",
+      "CARS": "Autos",
+      "TEAM": "Equipo",
+      "CONTACT_US": "Contáctanos"
+    },
+    "BUSINESS_HOURS": {
+      "TITLE": "Horario Comercial",
+      "MON_FRI": {
+        "LABEL": "Lunes - Viernes:",
+        "TIME": "09:00 am a 07:00 pm"
+      },
+      "SATURDAY": {
+        "LABEL": "Sábado:",
+        "TIME": "10:00 am a 05:00 pm"
+      },
+      "VACATION": {
+        "LABEL": "Vacaciones:",
+        "TIME": "Todos los domingos estamos de vacaciones"
+      }
+    },
+    "CONTACT_INFO": {
+      "TITLE": "Información de Contacto",
+      "ADDRESS": "123 Calle, Nueva York, EE.UU.",
+      "EMAIL": "info.example.com",
+      "PHONE": "+012 345 67890",
+      "FAX": "+012 345 67890"
+    }
+  },
+  "header": {
+    "title": "Contáctanos",
+    "home": "Inicio",
+    "contact": "Contacto"
+  },
+  "contactSection": {
+    "intro": {
+      "title": "Contáctanos",
+      "message": "El formulario de contacto está actualmente inactivo. Obtén un formulario de contacto funcional y operativo con Ajax y PHP en unos minutos. Simplemente copia y pega los archivos, añade un poco de código y listo.",
+      "download": "Descargar ahora"
+    },
+    "address": "Dirección",
+    "email": "Envíanos un correo",
+    "phone": "Teléfono",
+    "website": "Tu sitio web",
+    "sendMessage": "Enviar tu mensaje",
+    "form": {
+      "name": "Tu nombre",
+      "email": "Tu correo electrónico",
+      "phone": "Tu teléfono",
+      "project": "Tu proyecto",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "button": "Enviar mensaje"
+    },
+    "branchTitle": "Nuestra Sucursal",
+    "branches": {
+      "address": "Dirección:",
+      "phone": "Teléfono:"
+    },
+    "socialMedia": {
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "instagram": "Instagram",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "contactSection2": {
+    "sendMessage": "Envía tu mensaje",
+    "form": {
+      "name": "Tu Nombre",
+      "email": "Tu Correo Electrónico",
+      "phone": "Tu Teléfono",
+      "project": "Tu Proyecto",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "button": "Enviar Mensaje"
+    },
+    "branches": {
+      "address": "Dirección:",
+      "phone": "Teléfono:"
+    },
+    "branchTitle": "Nuestra Sucursal"
+  },
+  "counters": {
+    "Happy Clients": "Clientes Felices",
+    "Number of Cars": "Número de Coches",
+    "Car Centers": "Centros de Coches",
+    "Total kilometers": "Kilómetros Totales"
+  },
+  "vehicleCategories": "Vehículo",
+  "categories": "Categorías",
+  "vehicleDescription": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio.",
+  "bookNow1": "Reservar ahora",
+
+  "carousel": {
+    "heading1": "¡Obtén un 15% de descuento en tu alquiler! Elige tu modelo",
+    "subheading1": "Date un capricho en los EE.UU.",
+    "heading2": "¡Obtén un 15% de descuento en tu alquiler! Planifica tu viaje ahora",
+    "subheading2": "Date un capricho en los EE.UU."
+  }
+}

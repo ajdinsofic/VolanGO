@@ -1,0 +1,83 @@
+<div class="container-fluid team pb-5">
+  <div class="container pb-5">
+    <div
+      class="text-center mx-auto pb-5 wow fadeInUp"
+      data-wow-delay="0.1s"
+      style="max-width: 800px"
+    >
+      <h1 class="display-5 text-capitalize mb-3">
+        {{ "SUPPORT_CENTER.TITLE" | translate }}
+        <!--        <span class="text-primary">Support</span> Center-->
+      </h1>
+      <p class="mb-0">
+        Our customer support team is available 24/7 to assist with any questions
+        or issues you may have. We are dedicated to ensuring a smooth and
+        hassle-free experience for every customer, anytime you need help.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div
+        *ngFor="let member of teamMembers"
+        class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp"
+        [attr.data-wow-delay]="member.delay"
+      >
+        <div class="team-item p-4 pt-0">
+          <div class="team-img">
+            <img
+              [src]="member.img"
+              class="img-fluid rounded w-100"
+              [alt]="member.name"
+            />
+          </div>
+          <div class="team-content pt-4">
+            <h4>{{ member.name }}</h4>
+            <p>{{ "TEAM." + member.profession | translate }}</p>
+            <!-- Profession translation -->
+            <div class="team-icon d-flex justify-content-center">
+              <a
+                class="btn btn-square btn-light rounded-circle mx-1"
+                *ngIf="member.socialLinks.facebook"
+                [href]="member.socialLinks.facebook"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                class="btn btn-square btn-light rounded-circle mx-1"
+                *ngIf="member.socialLinks.twitter"
+                [href]="member.socialLinks.twitter"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                class="btn btn-square btn-light rounded-circle mx-1"
+                *ngIf="member.socialLinks.instagram"
+                [href]="member.socialLinks.instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                class="btn btn-square btn-light rounded-circle mx-1"
+                *ngIf="member.socialLinks.linkedin"
+                [href]="member.socialLinks.linkedin"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--&lt;!&ndash; Display fetched data or error message &ndash;&gt;-->
+<!--<div *ngIf="data">-->
+<!--  <h3>Fetched Data:</h3>-->
+<!--  <pre>{{ data }}</pre>-->
+<!--</div>-->
+
+<!--<div *ngIf="errorMessage">-->
+<!--  <h3>Error:</h3>-->
+<!--  <p>{{ errorMessage }}</p>-->
+<!--</div>-->

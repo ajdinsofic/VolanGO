@@ -1,0 +1,219 @@
+<div class="admin-dashboard">
+  <h2>Reservation Management</h2>
+
+  <!-- Filters -->
+  <div class="filters">
+    <input
+      type="text"
+      placeholder="User ID"
+      [(ngModel)]="filters.userId"
+      (ngModelChange)="search()"
+    />
+    <input
+      type="text"
+      placeholder="Reservation ID"
+      [(ngModel)]="filters.reservationId"
+      (ngModelChange)="search()"
+    />
+    <input
+      type="text"
+      placeholder="Vehicle ID"
+      [(ngModel)]="filters.vehicleId"
+      (ngModelChange)="search()"
+    />
+    <input
+      type="text"
+      placeholder="Location ID"
+      [(ngModel)]="filters.locationId"
+      (ngModelChange)="search()"
+    />
+    <input
+    type="datetime-local"
+    [(ngModel)]="filters.reservationDate"
+    (ngModelChange)="search()"
+  />
+    <button (click)="clearFilters()">Clear Filters</button>
+  </div>
+
+  <!-- Add New Reservation Button -->
+  <button (click)="addReservation()">Add New Reservation</button>
+
+  <div class="sort-options">
+    <p>Sort with:</p>
+    <select [(ngModel)]="selectedSort" (change)="sortReservations()">
+      <option value="reservationid">Reservation ID</option>
+      <option value="userid">User ID</option>
+      <option value="vehicleid">Vehicle ID</option>
+      <option value="locationid">Location ID</option>
+      <option value="reservationdate">Reservation Date</option>
+      <option value="pickupdate">Pickup Date</option>
+      <option value="dropoffdate">Dropoff Date</option>
+    </select>
+  </div>
+
+  <!-- Reservations Table -->
+  <table *ngIf="reservations.length > 0">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Reservation ID</th>
+        <th>User ID</th>
+        <th>Vehicle ID</th>
+        <th>Location ID</th>
+        <th>Reservation Date</th>
+        <th>Pickup Date</th>
+        <th>Dropoff Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reservation of reservations; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ reservation.reservationId }}</td>
+        <td>{{ reservation.userId }}</td>
+        <td>{{ reservation.vehicleID }}</td>
+        <td>{{ reservation.locationId }}</td>
+        <td>{{ reservation.reservationDate | date : "short" }}</td>
+        <td>{{ reservation.pickupDate | date : "short" }}</td>
+        <td>{{ reservation.dropoffDate | date : "short" }}</td>
+        <td>
+          <button (click)="editReservation(reservation)">Edit</button>
+          <button (click)="deleteReservation(reservation.reservationId)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Add/Edit Reservation Form -->
+  <div *ngIf="editing || adding" class="form-container">
+    <h3>{{ editing ? "Edit Reservation" : "Add New Reservation" }}</h3>
+    <form #form="ngForm" (ngSubmit)="save()">
+      <label>User ID:</label>
+      <input
+        type="text"
+        [(ngModel)]="currentReservation.userId"
+        name="userId"
+        required
+        pattern="^[A-Za-z0-9]+$"
+        title="User ID can only contain alphanumeric characters"
+        #userId="ngModel"
+        (ngModelChange)="checkUserId()"
+      />
+      <div
+        *ngIf="userId.invalid && (userId.dirty || userId.touched)"
+        class="error-message"
+      >
+        This field is required.
+      </div>
+      <div *ngIf="userIdError" class="error-message">{{ userIdError }}</div>
+
+      <label>Vehicle ID:</label>
+      <input
+        type="text"
+        [(ngModel)]="currentReservation.vehicleID"
+        name="vehicleId"
+        required
+        #vehicleId="ngModel"
+        (ngModelChange)="checkVehicleId()"
+      />
+      <div
+        *ngIf="vehicleId.invalid && (vehicleId.dirty || vehicleId.touched)"
+        class="error-message"
+      >
+        This field is required.
+      </div>
+      <div *ngIf="vehicleIdError" class="error-message">
+        {{ vehicleIdError }}
+      </div>
+
+      <label>Location ID:</label>
+      <input
+        type="text"
+        [(ngModel)]="currentReservation.locationId"
+        name="locationId"
+        required
+        #locationId="ngModel"
+        (ngModelChange)="checkLocationId()"
+      />
+      <div
+        *ngIf="locationId.invalid && (locationId.dirty || locationId.touched)"
+        class="error-message"
+      >
+        This field is required.
+      </div>
+      <div *ngIf="locationIdError" class="error-message">
+        {{ locationIdError }}
+      </div>
+
+      <label>Reservation Date:</label>
+      <input
+        type="datetime-local"
+        [(ngModel)]="currentReservation.reservationDate"
+        name="reservationDate"
+        required
+        #reservationDate="ngModel"
+      />
+      <div
+        *ngIf="
+          reservationDate.invalid &&
+          (reservationDate.dirty || reservationDate.touched)
+        "
+        class="error-message"
+      >
+        This field is required.
+      </div>
+
+      <label>Pickup Date:</label>
+      <input
+        type="datetime-local"
+        [(ngModel)]="currentReservation.pickupDate"
+        name="pickupDate"
+        required
+        #pickupDate="ngModel"
+      />
+      <div
+        *ngIf="pickupDate.invalid && (pickupDate.dirty || pickupDate.touched)"
+        class="error-message"
+      >
+        This field is required.
+      </div>
+
+      <label>Dropoff Date:</label>
+      <input
+        type="datetime-local"
+        [(ngModel)]="currentReservation.dropoffDate"
+        name="dropoffDate"
+        required
+        #dropoffDate="ngModel"
+      />
+      <div
+        *ngIf="
+          dropoffDate.invalid && (dropoffDate.dirty || dropoffDate.touched)
+        "
+        class="error-message"
+      >
+        This field is required.
+      </div>
+
+      <button type="submit" [disabled]="!form.valid || isSubmitDisabled()">
+        {{ editing ? "Update" : "Add" }} Reservation
+      </button>
+      <button type="button" (click)="cancel()">Cancel</button>
+    </form>
+
+    <!-- Form invalid message -->
+    <div *ngIf="form.invalid && form.touched" class="error-message">
+      Form is not valid.
+    </div>
+
+    <!-- Additional Date Validation Error Messages -->
+    <div *ngIf="isDateInvalid()" class="error-message">
+      <p>Pickup date cannot be later than dropoff date.</p>
+      <p>
+        Reservation, pickup, and dropoff dates must be today or in the future.
+      </p>
+    </div>
+  </div>
+</div>

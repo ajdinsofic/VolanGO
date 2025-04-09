@@ -1,0 +1,22 @@
+.text-primary {
+  color: var(--accent-color); /* Use accent color for text in dark mode */
+}
+
+.text-primary.rounded-pill {
+  background-color: var(--card-bg-color); /* Ensure contrast with the background */
+  color: var(--accent-color); /* Keep the text accent color */
+  border: 1px solid var(--border-color); /* Add a subtle border for separation */
+  padding: 0.5rem 1rem; /* Adjust padding for a balanced pill shape */
+  border-radius: 50px; /* Pill-like appearance */
+  font-weight: bold; /* Emphasize the text */
+  text-align: center; /* Center-align text within the pill */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+  transition: 0.3s; /* Smooth transitions for hover effects */
+}
+
+/* Hover effect */
+.text-primary.rounded-pill:hover {
+  background-color: var(--hover-color); /* Accent background on hover */
+  color: var(--text-color-primary); /* Ensure text remains visible */
+  border-color: var(--accent-color); /* Highlight border */
+}

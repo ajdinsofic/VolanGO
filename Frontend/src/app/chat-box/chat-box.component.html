@@ -1,0 +1,30 @@
+<div id="chat-box" class="chat-box" [class.minimized]="!isChatOpen">
+  <div class="chat-header">
+    <h3>Support</h3>
+    <button (click)="toggleChat()">&#8211;</button>
+  </div>
+  <div class="chat-content" *ngIf="isChatOpen">
+    <div class="chat-messages">
+      <div *ngFor="let message of messages" [ngClass]="{'user-message': message.sender === 'You', 'bot-message': message.sender === 'Support'}">
+        <div class="message-bubble">
+          <div class="message-icon">
+            <img *ngIf="message.sender === 'You'" src="assets/img/user.png" alt="User Icon" />
+            <img *ngIf="message.sender === 'Support'" src="assets/img/bot.png" alt="Bot Icon" />
+          </div>
+          <div class="message-text">
+            {{ message.content }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chat-input">
+      <input
+        type="text"
+        [(ngModel)]="currentMessage"
+        placeholder="Type your message..."
+        (keydown)="sendMessageOnEnter($event)"
+      />
+      <button (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+</div>

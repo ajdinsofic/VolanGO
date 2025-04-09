@@ -1,0 +1,757 @@
+<!-- Spinner Start -->
+<!--<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">-->
+<!--  <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">-->
+<!--    <span class="sr-only">Loading...</span>-->
+<!--  </div>-->
+<!--</div>-->
+<!-- Spinner End -->
+
+<!--<div class="header-carousel">-->
+<!--  <div-->
+<!--    id="carouselId"-->
+<!--    class="carousel slide"-->
+<!--    data-bs-ride="carousel"-->
+<!--    data-bs-interval="3000"-->
+<!--  >-->
+<!--    <ol class="carousel-indicators">-->
+<!--      <li-->
+<!--        *ngFor="let item of carouselItems; let i = index"-->
+<!--        [attr.data-bs-target]="'#carouselId'"-->
+<!--        [attr.data-bs-slide-to]="i"-->
+<!--        [class.active]="i === 0"-->
+<!--        [attr.aria-label]="'Slide ' + (i + 1)"-->
+<!--      ></li>-->
+<!--    </ol>-->
+
+<!--    <div class="carousel-inner">-->
+<!--      <div-->
+<!--        *ngFor="let item of carouselItems; let i = index"-->
+<!--        class="carousel-item"-->
+<!--        [class.active]="i === activeIndex"-->
+<!--      >-->
+<!--        <img-->
+<!--          [src]="item.image"-->
+<!--          class="img-fluid w-100"-->
+<!--          alt="Carousel slide {{ i + 1 }}"-->
+<!--        />-->
+<!--        <div class="carousel-caption">-->
+<!--          <div class="container py-4">-->
+<!--            <div class="row g-5">-->
+<!--              &lt;!&ndash; Left Side Form &ndash;&gt;-->
+<!--              <div class="col-lg-6">-->
+<!--                <div class="bg-secondary rounded p-5">-->
+<!--                  <h4 class="text-white mb-4">{{ "viewCars" | translate }}</h4>-->
+<!--                  <form-->
+<!--                    #viewRequestForm="ngForm"-->
+<!--                    (ngSubmit)="submitForm(viewRequestForm, viewRequest)"-->
+<!--                  >-->
+<!--                    <div class="row g-3">-->
+<!--                      <div class="col-12">-->
+<!--                        <select-->
+<!--                          [(ngModel)]="viewRequest.selectedCar"-->
+<!--                          name="selectedCar"-->
+<!--                          class="form-select"-->
+<!--                          required-->
+<!--                          aria-label="Default select example"-->
+<!--                          #selectedCar="ngModel"-->
+<!--                        >-->
+<!--                          <option value="" disabled>-->
+<!--                            {{ "selectCar" | translate }}-->
+<!--                          </option>-->
+<!--                          <option-->
+<!--                            *ngFor="let car of item.formData.carOptions"-->
+<!--                            [value]="car"-->
+<!--                          >-->
+<!--                            {{ car }}-->
+<!--                          </option>-->
+<!--                        </select>-->
+
+<!--                        &lt;!&ndash; Error message if selectedCar is invalid and touched &ndash;&gt;-->
+<!--                        <div-->
+<!--                          *ngIf="selectedCar.invalid && selectedCar.touched"-->
+<!--                          class="error-message"-->
+<!--                        >-->
+<!--                          {{ "fillFields" | translate }}-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                      <div class="col-12">-->
+<!--                        <div class="input-group">-->
+<!--                          <div-->
+<!--                            class="d-flex align-items-center bg-light text-body rounded-start p-2"-->
+<!--                          >-->
+<!--                            <span class="fas fa-map-marker-alt"></span>-->
+<!--                            <span class="ms-1">{{ "pickup" | translate }}</span>-->
+<!--                          </div>-->
+
+<!--                          <input-->
+<!--                            [(ngModel)]="viewRequest.PickUp"-->
+<!--                            name="PickUp"-->
+<!--                            id="PickUp"-->
+<!--                            required-->
+<!--                            class="form-control"-->
+<!--                            type="text"-->
+<!--                            placeholder="Enter Pickup Location"-->
+<!--                            #PickUp="ngModel"-->
+<!--                          />-->
+<!--                        </div>-->
+
+<!--                        &lt;!&ndash; Error message if PickUp is invalid and touched &ndash;&gt;-->
+<!--                        <div-->
+<!--                          *ngIf="PickUp.invalid && PickUp.touched"-->
+<!--                          class="error-message"-->
+<!--                        >-->
+<!--                          {{ "fillFields" | translate }}-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                      <div class="col-12">-->
+<!--                        <a href="#" class="text-start text-white d-block mb-2">-->
+<!--                          {{ "needDifferentDrop" | translate }}-->
+<!--                        </a>-->
+<!--                        <div class="input-group">-->
+<!--                          <div-->
+<!--                            class="d-flex align-items-center bg-light text-body rounded-start p-2"-->
+<!--                          >-->
+<!--                            <span class="fas fa-map-marker-alt"></span>-->
+<!--                            <span class="ms-1">{{-->
+<!--                              "dropOff" | translate-->
+<!--                            }}</span>-->
+<!--                          </div>-->
+<!--                          <select-->
+<!--                            [(ngModel)]="viewRequest.DropOff"-->
+<!--                            name="DropOff"-->
+<!--                            id="DropOff"-->
+<!--                            required-->
+<!--                            class="form-select"-->
+<!--                            aria-label="Select Drop-off location"-->
+<!--                            #DropOff="ngModel"-->
+<!--                          >-->
+<!--                            <option value="" disabled selected>-->
+<!--                              Select a Drop-off location-->
+<!--                            </option>-->
+<!--                            <option-->
+<!--                              *ngFor="let option of dropOffOptions"-->
+<!--                              [value]="option"-->
+<!--                            >-->
+<!--                              {{ option }}-->
+<!--                            </option>-->
+<!--                          </select>-->
+
+<!--                          <div-->
+<!--                            *ngIf="DropOff.invalid && DropOff.touched"-->
+<!--                            class="error-message"-->
+<!--                          >-->
+<!--                            This field is required.-->
+<!--                          </div>-->
+<!--                        </div>-->
+<!--                        <div-->
+<!--                          id="map"-->
+<!--                          style="height: 150px; width: 100%; margin-top: 20px"-->
+<!--                        ></div>-->
+<!--                        &lt;!&ndash; Error message if DropOff is invalid and touched &ndash;&gt;-->
+<!--                        <div-->
+<!--                          *ngIf="DropOff.invalid && DropOff.touched"-->
+<!--                          class="error-message"-->
+<!--                        >-->
+<!--                          {{ "fillFields" | translate }}-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                      <div class="col-12">-->
+<!--                        <div class="input-group">-->
+<!--                          <div-->
+<!--                            class="d-flex align-items-center bg-light text-body rounded-start p-2"-->
+<!--                          >-->
+<!--                            <span class="fas fa-calendar-alt"></span-->
+<!--                            ><span class="ms-1">{{-->
+<!--                              "pickupDate" | translate-->
+<!--                            }}</span>-->
+<!--                          </div>-->
+<!--                          <input-->
+<!--                            [(ngModel)]="viewRequest.PickUpDate"-->
+<!--                            name="PickUpDate"-->
+<!--                            id="PickUpDate"-->
+<!--                            required-->
+<!--                            class="form-control"-->
+<!--                            type="date"-->
+<!--                            placeholder="Enter Pickup Location"-->
+<!--                            #PickUpDate="ngModel"-->
+<!--                            required-->
+<!--                          />-->
+
+<!--                          <select-->
+<!--                            [(ngModel)]="viewRequest.PickUpTime"-->
+<!--                            class="form-select ms-3"-->
+<!--                            aria-label="Default select example"-->
+<!--                            name="DropOffTime"-->
+<!--                            id="DropOffTime"-->
+<!--                            required-->
+<!--                            class="form-control"-->
+<!--                            type="date"-->
+<!--                            placeholder="Enter Pickup Location"-->
+<!--                            #DropOffTime="ngModel"-->
+<!--                          >-->
+<!--                            <option selected>10:00</option>-->
+<!--                            <option-->
+<!--                              *ngFor="-->
+<!--                                let time of [-->
+<!--                                  '11:00',-->
+<!--                                  '12:00',-->
+<!--                                  '13:00',-->
+<!--                                  '14:00',-->
+<!--                                  '15:00',-->
+<!--                                  '16:00',-->
+<!--                                  '17:00',-->
+<!--                                  '18:00',-->
+<!--                                  '19:00',-->
+<!--                                  '20:00',-->
+<!--                                  '21:00',-->
+<!--                                  '22:00'-->
+<!--                                ]-->
+<!--                              "-->
+<!--                            >-->
+<!--                              {{ time }}-->
+<!--                            </option>-->
+<!--                          </select>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                      <div-->
+<!--                        *ngIf="PickUpDate.invalid && PickUpDate.touched"-->
+<!--                        class="error-message"-->
+<!--                      >-->
+<!--                        {{ "fillFields" | translate }}-->
+<!--                      </div>-->
+<!--                      <div class="col-12">-->
+<!--                        <div class="input-group">-->
+<!--                          <div-->
+<!--                            class="d-flex align-items-center bg-light text-body rounded-start p-2"-->
+<!--                          >-->
+<!--                            <span class="fas fa-calendar-alt"></span-->
+<!--                            ><span class="ms-1">{{-->
+<!--                              "dropOffDate" | translate-->
+<!--                            }}</span>-->
+<!--                          </div>-->
+<!--                          <input-->
+<!--                            [(ngModel)]="viewRequest.DropOffDate"-->
+<!--                            name="DropOffDate"-->
+<!--                            id="DropOffDate"-->
+<!--                            required-->
+<!--                            class="form-control"-->
+<!--                            type="date"-->
+<!--                            placeholder="Enter Pickup Location"-->
+<!--                            #DropOffDate="ngModel"-->
+<!--                            required-->
+<!--                          />-->
+
+<!--                          <select-->
+<!--                            [(ngModel)]="viewRequest.DropOffTime"-->
+<!--                            class="form-select ms-3"-->
+<!--                            aria-label="Default select example"-->
+<!--                            name="DropOffTime"-->
+<!--                            id="DropOffTime"-->
+<!--                            required-->
+<!--                            class="form-control"-->
+<!--                            type="date"-->
+<!--                            placeholder="Enter Pickup Location"-->
+<!--                            #DropOffTime="ngModel"-->
+<!--                          >-->
+<!--                            <option selected>10:00</option>-->
+<!--                            <option-->
+<!--                              *ngFor="-->
+<!--                                let time of [-->
+<!--                                  '11:00',-->
+<!--                                  '12:00',-->
+<!--                                  '13:00',-->
+<!--                                  '14:00',-->
+<!--                                  '15:00',-->
+<!--                                  '16:00',-->
+<!--                                  '17:00',-->
+<!--                                  '18:00',-->
+<!--                                  '19:00',-->
+<!--                                  '20:00',-->
+<!--                                  '21:00',-->
+<!--                                  '22:00'-->
+<!--                                ]-->
+<!--                              "-->
+<!--                            >-->
+<!--                              {{ time }}-->
+<!--                            </option>-->
+<!--                          </select>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                      <div-->
+<!--                        *ngIf="DropOffDate.invalid && DropOffDate.touched"-->
+<!--                        class="error-message"-->
+<!--                      >-->
+<!--                        {{ "fillFields" | translate }}-->
+<!--                      </div>-->
+<!--                      <div class="col-12">-->
+<!--                        <button class="btn btn-light w-100 py-2">-->
+<!--                          {{ "viewNow" | translate }}-->
+<!--                        </button>-->
+<!--                      </div>-->
+<!--                      <div-->
+<!--                        *ngIf="formSubmitted && viewRequestForm.invalid"-->
+<!--                        class="error-message"-->
+<!--                      >-->
+<!--                        {{ "fillFields" | translate }}-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </form>-->
+<!--                </div>-->
+<!--              </div>-->
+
+<!--              &lt;!&ndash; Right Side Content &ndash;&gt;-->
+<!--              <div-->
+<!--                class="col-lg-6 d-none d-lg-flex fadeInRight animated"-->
+<!--                data-animation="fadeInRight"-->
+<!--                data-delay="1s"-->
+<!--                style="animation-delay: 1s"-->
+<!--              >-->
+<!--                <div class="text-start">-->
+<!--                  <h1 class="display-5 text-white">-->
+<!--                    {{ "carousel.heading" + (i + 1) | translate }}-->
+<!--                  </h1>-->
+<!--                  <p>{{ "carousel.subheading" + (i + 1) | translate }}</p>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!-- Carousel End -->
+
+<div class="header-carousel">
+  <!-- Static Form Container (Left side) -->
+  <div class="form-container">
+    <!--    rounded-->
+    <div class="bg-secondary p-5">
+      <h4 class="text-white mb-4">{{ "viewCars" | translate }}</h4>
+      <form
+        #viewRequestForm="ngForm"
+        (ngSubmit)="submitForm(viewRequestForm, viewRequest)"
+      >
+        <div class="row g-3">
+          <div class="col-12">
+            <select
+              [(ngModel)]="viewRequest.selectedCar"
+              name="selectedCar"
+              class="form-select"
+              required
+              aria-label="Default select example"
+              #selectedCar="ngModel"
+            >
+              <option value="" disabled>
+                {{ "selectCar" | translate }}
+              </option>
+              <option
+                *ngFor="
+                  let car of carouselItems[activeIndex]?.formData?.carOptions
+                "
+                [value]="car"
+              >
+                {{ car }}
+              </option>
+            </select>
+
+            <!-- Error message if selectedCar is invalid and touched -->
+            <div
+              *ngIf="selectedCar.invalid && selectedCar.touched"
+              class="error-message"
+            >
+              {{ "fillFields" | translate }}
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="input-group">
+              <div
+                class="d-flex align-items-center bg-light text-body rounded-start p-2"
+              >
+                <span class="fas fa-map-marker-alt"></span>
+                <span class="ms-1">{{ "pickup" | translate }}</span>
+              </div>
+
+              <input
+                [(ngModel)]="viewRequest.PickUp"
+                name="PickUp"
+                id="PickUp"
+                required
+                class="form-control"
+                type="text"
+                [placeholder]="'enterPick' | translate"
+                #PickUp="ngModel"
+              />
+            </div>
+
+            <!-- Error message if PickUp is invalid and touched -->
+            <div *ngIf="PickUp.invalid && PickUp.touched" class="error-message">
+              {{ "fillFields" | translate }}
+            </div>
+          </div>
+          <div class="col-12">
+            <p class="text-start text-white d-block mb-2">
+              {{ "needDifferentDrop" | translate }}
+            </p>
+            <div class="input-group">
+              <div
+                class="d-flex align-items-center bg-light text-body rounded-start p-2"
+              >
+                <span class="fas fa-map-marker-alt"></span>
+                <span class="ms-1">{{ "dropOff" | translate }}</span>
+              </div>
+              <select
+                [(ngModel)]="viewRequest.DropOff"
+                name="DropOff"
+                id="DropOff"
+                required
+                class="form-select"
+                aria-label="Select Drop-off location"
+                #DropOff="ngModel"
+              >
+                <option value="" disabled selected>
+                  {{ "enterDrop" | translate }}
+                </option>
+                <option *ngFor="let option of dropOffOptions" [value]="option">
+                  {{ option }}
+                </option>
+              </select>
+
+              <div
+                *ngIf="DropOff.invalid && DropOff.touched"
+                class="error-message"
+              >
+                This field is required.
+              </div>
+            </div>
+            <div
+              id="map"
+              style="height: 150px; width: 100%; margin-top: 20px"
+            ></div>
+            <!-- Error message if DropOff is invalid and touched -->
+            <div
+              *ngIf="DropOff.invalid && DropOff.touched"
+              class="error-message"
+            >
+              {{ "fillFields" | translate }}
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="input-group">
+              <div
+                class="d-flex align-items-center bg-light text-body rounded-start p-2"
+              >
+                <span class="fas fa-calendar-alt"></span
+                ><span class="ms-1">{{ "pickupDate" | translate }}</span>
+              </div>
+              <input
+                [(ngModel)]="viewRequest.PickUpDate"
+                name="PickUpDate"
+                id="PickUpDate"
+                class="form-control"
+                type="date"
+                placeholder="'enterPick' | translate"
+                #PickUpDate="ngModel"
+                [min]="today"
+                required
+              />
+
+              <select
+                [(ngModel)]="viewRequest.PickUpTime"
+                class="form-select ms-3"
+                aria-label="Default select example"
+                name="PickUpTime"
+                id="PickUpTime"
+                required
+                class="form-control"
+                type="date"
+                placeholder="Enter Pickup Location"
+                #DropOffTime="ngModel"
+              >
+                <option selected>10:00</option>
+                <option
+                  *ngFor="
+                    let time of [
+                      '11:00',
+                      '12:00',
+                      '13:00',
+                      '14:00',
+                      '15:00',
+                      '16:00',
+                      '17:00',
+                      '18:00',
+                      '19:00',
+                      '20:00',
+                      '21:00',
+                      '22:00'
+                    ]
+                  "
+                >
+                  {{ time }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div
+            *ngIf="PickUpDate.invalid && PickUpDate.touched"
+            class="error-message"
+          >
+            {{ "fillFields" | translate }}
+          </div>
+          <div class="col-12">
+            <div class="input-group">
+              <div
+                class="d-flex align-items-center bg-light text-body rounded-start p-2"
+              >
+                <span class="fas fa-calendar-alt"></span
+                ><span class="ms-1">{{ "dropOffDate" | translate }}</span>
+              </div>
+              <input
+                [(ngModel)]="viewRequest.DropOffDate"
+                name="DropOffDate"
+                id="DropOffDate"
+                class="form-control"
+                type="date"
+                placeholder="Enter Pickup Location"
+                #DropOffDate="ngModel"
+                [min]="today"
+                required
+              />
+
+              <select
+                [(ngModel)]="viewRequest.DropOffTime"
+                class="form-select ms-3"
+                aria-label="Default select example"
+                name="DropOffTime"
+                id="DropOffTime"
+                required
+                class="form-control"
+                type="date"
+                placeholder="Enter Pickup Location"
+                #DropOffTime="ngModel"
+              >
+                <option selected>10:00</option>
+                <option
+                  *ngFor="
+                    let time of [
+                      '11:00',
+                      '12:00',
+                      '13:00',
+                      '14:00',
+                      '15:00',
+                      '16:00',
+                      '17:00',
+                      '18:00',
+                      '19:00',
+                      '20:00',
+                      '21:00',
+                      '22:00'
+                    ]
+                  "
+                >
+                  {{ time }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div
+            *ngIf="DropOffDate.invalid && DropOffDate.touched"
+            class="error-message"
+          >
+            {{ "fillFields" | translate }}
+          </div>
+          <div class="col-12">
+            <button
+              class="btn btn-light w-100 py-2"
+              title="Dugme koje vodi na pregled auta"
+            >
+              {{ "viewNow" | translate }}
+            </button>
+          </div>
+          <div
+            *ngIf="formSubmitted && viewRequestForm.invalid"
+            class="error-message"
+          >
+            {{ "fillFields" | translate }}
+          </div>
+
+          <div *ngIf="errorMessage" class="error-message">
+            {{ errorMessage }}
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Carousel Component -->
+  <div
+    id="carouselId"
+    class="carousel slide"
+    data-bs-ride="carousel"
+    data-bs-interval="3000"
+  >
+    <ol class="carousel-indicators">
+      <li
+        *ngFor="let item of carouselItems; let i = index"
+        [attr.data-bs-target]="'#carouselId'"
+        [attr.data-bs-slide-to]="i"
+        [class.active]="i === 0"
+        [attr.aria-label]="'Slide ' + (i + 1)"
+      ></li>
+    </ol>
+
+    <div class="carousel-inner">
+      <div
+        *ngFor="let item of carouselItems; let i = index"
+        class="carousel-item"
+        [class.active]="i === activeIndex"
+      >
+        <img
+          [src]="item.image"
+          class="img-fluid w-100"
+          alt="Carousel slide {{ i + 1 }}"
+        />
+        <div class="carousel-caption">
+          <div class="container py-4">
+            <div class="row g-5">
+              <!-- Right Side Content (Carousel Content) -->
+              <div
+                class="col-lg-6 d-none d-lg-flex fadeInRight animated"
+                data-animation="fadeInRight"
+                data-delay="1s"
+                style="animation-delay: 1s"
+              >
+                <div class="text-start">
+                  <h1 class="display-5 text-white">
+                    {{ "carousel.heading" + (i + 1) | translate }}
+                  </h1>
+                  <p>{{ "carousel.subheading" + (i + 1) | translate }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Carousel End -->
+
+<!-- Features Start -->
+<app-features-piece />
+<!-- Features End -->
+
+<!-- About Start -->
+<app-about-piece />
+<!-- About End -->
+
+<!-- Fact Counter -->
+<app-fact-counter />
+<!-- Fact Counter -->
+
+<!-- Services Start -->
+<app-service-piece />
+<!-- Services End -->
+
+<!-- Car categories Start -->
+<app-categories-piece />
+<!-- Car categories End -->
+
+<!-- Car Steps Start -->
+<app-central-process />
+<!-- Car Steps End -->
+
+<!-- Blog Start -->
+<app-blog-pieces />
+<!-- Blog End -->
+
+<!-- Banner Start -->
+<app-banner />
+<!-- Banner End -->
+
+<!-- Team Start -->
+<app-teams />
+<!-- Team End -->
+
+<app-move-to-cart />
+
+<!-- Testimonial Start -->
+<!--
+<div class="container-fluid testimonial pb-5">
+  <div class="container pb-5">
+    <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 800px;">
+      <h1 class="display-5 text-capitalize mb-3">Our Clients<span class="text-primary"> Riviews</span></h1>
+      <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut amet nemo expedita asperiores commodi accusantium at cum harum, excepturi, quia tempora cupiditate! Adipisci facilis modi quisquam quia distinctio,
+      </p>
+    </div>
+    <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+      <div class="testimonial-item">
+        <div class="testimonial-quote"><i class="fa fa-quote-right fa-2x"></i>
+        </div>
+        <div class="testimonial-inner p-4">
+          <img src="/assets/img/testimonial-1.jpg" class="img-fluid" alt="">
+          <div class="ms-4">
+            <h4>Person Name</h4>
+            <p>Profession</p>
+            <div class="d-flex text-primary">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star text-body"></i>
+            </div>
+          </div>
+        </div>
+        <div class="border-top rounded-bottom p-4">
+          <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta neque ab repudiandae reprehenderit ipsum eos cumque esse repellendus impedit.</p>
+        </div>
+      </div>
+      <div class="testimonial-item">
+        <div class="testimonial-quote"><i class="fa fa-quote-right fa-2x"></i>
+        </div>
+        <div class="testimonial-inner p-4">
+          <img src="/assets/img/testimonial-2.jpg" class="img-fluid" alt="">
+          <div class="ms-4">
+            <h4>Person Name</h4>
+            <p>Profession</p>
+            <div class="d-flex text-primary">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star text-body"></i>
+              <i class="fas fa-star text-body"></i>
+            </div>
+          </div>
+        </div>
+        <div class="border-top rounded-bottom p-4">
+          <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta neque ab repudiandae reprehenderit ipsum eos cumque esse repellendus impedit.</p>
+        </div>
+      </div>
+      <div class="testimonial-item">
+        <div class="testimonial-quote"><i class="fa fa-quote-right fa-2x"></i>
+        </div>
+        <div class="testimonial-inner p-4">
+          <img src="/assets/img/testimonial-3.jpg" class="img-fluid" alt="">
+          <div class="ms-4">
+            <h4>Person Name</h4>
+            <p>Profession</p>
+            <div class="d-flex text-primary">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star text-body"></i>
+              <i class="fas fa-star text-body"></i>
+              <i class="fas fa-star text-body"></i>
+            </div>
+          </div>
+        </div>
+        <div class="border-top rounded-bottom p-4">
+          <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam soluta neque ab repudiandae reprehenderit ipsum eos cumque esse repellendus impedit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+<!-- Testimonial End -->

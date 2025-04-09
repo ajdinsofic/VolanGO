@@ -1,0 +1,106 @@
+<div class="admin-dashboard">
+  <h2>Damage Reports Management</h2>
+
+  <!-- Add New Report Button -->
+  <button (click)="addReport()">Add New Report</button>
+
+  <!-- Damage Reports Table -->
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Reservation</th>
+      <th>Vehicle</th>
+      <th>User</th>
+      <th>Report Date</th>
+      <th>Description</th>
+      <th>Repair Cost</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let report of damageReports">
+      <td>{{ report.damageReportId }}</td>
+      <td>{{ report.reservationId }}</td>
+      <td>{{ report.vehicleId }}</td>
+      <td>{{ report.userId }}</td>
+      <td>{{ report.reportDate }}</td>
+      <td>{{ report.description }}</td>
+      <td>{{ report.estimatedRepairCost }}</td>
+      <td>{{ report.status }}</td>
+      <td>
+        <button (click)="editReport(report)">Edit</button>
+        <button (click)="delete(report.damageReportId)">Delete</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- Add/Edit Form -->
+  <div *ngIf="adding || editing" class="form-container">
+    <h3>{{ editing ? 'Edit Damage Report' : 'Add New Damage Report' }}</h3>
+    <form>
+      <div class="form-row">
+        <label for="reservationId">Reservation:</label>
+        <select
+          id="reservationId"
+          [(ngModel)]="currentReport.reservationId"
+          name="reservationId"
+        >
+          <option value="" disabled>Select a Reservation</option>
+          <option *ngFor="let r of reservations" [value]="r.reservationId">{{ r.reservationId }}</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="vehicleId">Vehicle:</label>
+        <select
+          id="vehicleId"
+          [(ngModel)]="currentReport.vehicleId"
+          name="vehicleId"
+        >
+          <option value="" disabled>Select a Vehicle</option>
+          <option *ngFor="let v of vehicles" [value]="v.vehicleId">{{ v.model }}</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="userId">User:</label>
+        <select
+          id="userId"
+          [(ngModel)]="currentReport.userId"
+          name="userId"
+        >
+          <option value="" disabled>Select a User</option>
+          <option *ngFor="let u of users" [value]="u.userId">{{ u.firstName }}</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="reportDate">Report Date:</label>
+        <input id="reportDate" type="date" [(ngModel)]="currentReport.reportDate" name="reportDate" />
+      </div>
+
+      <div class="form-row">
+        <label for="description">Description:</label>
+        <textarea id="description" [(ngModel)]="currentReport.description" name="description"></textarea>
+      </div>
+
+      <div class="form-row">
+        <label for="estimatedRepairCost">Estimated Repair Cost:</label>
+        <input id="estimatedRepairCost" type="number" [(ngModel)]="currentReport.estimatedRepairCost" name="estimatedRepairCost" />
+      </div>
+
+      <div class="form-row">
+        <label for="status">Status:</label>
+        <input id="status" type="text" [(ngModel)]="currentReport.status" name="status" />
+      </div>
+
+      <div class="form-actions">
+        <button (click)="save()">Save</button>
+        <button (click)="cancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

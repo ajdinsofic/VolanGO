@@ -1,0 +1,31 @@
+<div class="container-fluid banner pb-5 wow zoomInDown" data-wow-delay="0.1s">
+  <div class="container pb-5">
+    <div class="banner-item rounded">
+      <img
+        src="/assets/img/banner-1.jpg"
+        class="img-fluid rounded w-100"
+        alt="Banner Image"
+      />
+      <div class="banner-content">
+        <h2 class="text-primary">{{ 'rentYourCar' | translate }}</h2>
+        <h1 class="text-white">{{ 'interestedInRenting' | translate }}</h1>
+        <p class="text-white">{{ 'dontHesitateMessage' | translate }}</p>
+        <div class="banner-btn">
+          <a
+            href="https://wa.me/+38761554667"
+            class="btn btn-secondary rounded-pill py-3 px-4 px-md-5 me-2"
+            target="_blank"
+          >
+            {{ 'whatsApp' | translate }}
+          </a>
+          <a
+            routerLink="/public/contact"
+            class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2"
+          >
+            {{ 'contactUs' | translate }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,220 @@
+<!-- Header Start -->
+<div class="container-fluid bg-breadcrumb">
+  <div class="container text-center py-5" style="max-width: 900px">
+    <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">
+      {{ "header.title" | translate }}
+    </h4>
+    <ol
+      class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown"
+      data-wow-delay="0.3s"
+    >
+      <li class="breadcrumb-item">
+        <a routerLink="/public/home">{{ "header.home" | translate }}</a>
+      </li>
+      <li class="breadcrumb-item active text-primary">
+        {{ "header.contact" | translate }}
+      </li>
+    </ol>
+  </div>
+</div>
+<!-- Header End -->
+
+<!-- Contact Start -->
+<div class="container-fluid contact py-5">
+  <div class="container py-5">
+    <div
+      class="text-center mx-auto pb-5 wow fadeInUp"
+      data-wow-delay="0.1s"
+      style="max-width: 800px"
+    >
+      <h1 class="display-5 text-capitalize text-primary mb-3">
+        {{ "contactSection.intro.title" | translate }}
+      </h1>
+      <p class="mb-0">
+        {{ "contactSection.intro.message" | translate }}
+        <a
+          class="text-primary fw-bold"
+          href="https://htmlcodex.com/contact-form"
+          >{{ "contactSection.intro.download" | translate }}</a
+        >.
+      </p>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-12 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="row g-5">
+          <div class="col-md-6 col-lg-6 col-xl-3">
+            <div class="contact-add-item p-4">
+              <div class="contact-icon mb-4">
+                <i class="fas fa-map-marker-alt fa-2x"></i>
+              </div>
+              <div>
+                <h4>{{ "contactSection.address" | translate }}</h4>
+                <p class="mb-0">Marka Marulica 7, BIH, Sarajevo</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp"
+            data-wow-delay="0.3s"
+          >
+            <div class="contact-add-item p-4">
+              <div class="contact-icon mb-4">
+                <i class="fas fa-envelope fa-2x"></i>
+              </div>
+              <div>
+                <h4>{{ "contactSection.email" | translate }}</h4>
+                <p class="mb-0">{{ "volanGo@gmail.com" }}</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp"
+            data-wow-delay="0.5s"
+          >
+            <div class="contact-add-item p-4">
+              <div class="contact-icon mb-4">
+                <i class="fa fa-phone-alt fa-2x"></i>
+              </div>
+              <div>
+                <h4>{{ "contactSection.phone" | translate }}</h4>
+                <p class="mb-0">+37861664557</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp"
+            data-wow-delay="0.7s"
+          >
+            <div class="contact-add-item p-4">
+              <div class="contact-icon mb-4">
+                <i class="fab fa-firefox-browser fa-2x"></i>
+              </div>
+              <div>
+                <h4>{{ "contactSection.website" | translate }}</h4>
+                <p class="mb-0">www.volanGo.ba</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="bg-secondary p-5 rounded">
+          <h4 class="text-primary mb-4">
+            {{ "contactSection.sendMessage" | translate }}
+          </h4>
+          <form #contactForm="ngForm" (ngSubmit)="SubmitForm()">
+            <div class="row g-4">
+              <div class="col-lg-12 col-xl-6">
+                <div class="form-floating">
+                  <input type="text" class="form-control" [(ngModel)]="name" name="name" id="name" required />
+                  <label for="name">{{ "contactSection.form.name" | translate }}</label>
+                </div>
+              </div>
+              
+              <div class="col-lg-12 col-xl-6">
+                <div class="form-floating">
+                  <input type="email" class="form-control" [(ngModel)]="email" name="email" id="email" required />
+                  <label for="email">{{ "contactSection.form.email" | translate }}</label>
+                </div>
+              </div>
+              
+              <div class="col-lg-12 col-xl-6">
+                <div class="form-floating">
+                  <input type="tel" class="form-control" [(ngModel)]="phone" name="phone" id="phone" required />
+                  <label for="phone">{{ "contactSection.form.phone" | translate }}</label>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-floating">
+                  <input type="text" class="form-control" [(ngModel)]="subject" name="subject" id="subject" required />
+                  <label for="subject">{{ "contactSection.form.subject" | translate }}</label>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-floating">
+                  <textarea class="form-control" [(ngModel)]="message" name="message" id="message" style="height: 160px" required></textarea>
+                  <label for="message">{{ "contactSection.form.message" | translate }}</label>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <button type="submit" class="btn btn-light w-100 py-3">
+                  {{ "contactSection.form.button" | translate }}
+                </button>
+              </div>
+            </div>
+          </form>
+          <!-- FORM END -->
+        </div>
+      </div>
+
+      <div class="col-12 col-xl-1 wow fadeInUp" data-wow-delay="0.3s">
+        <div
+          class="d-flex flex-xl-column align-items-center justify-content-center"
+        >
+          <a
+            class="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-4 me-4 me-xl-0"
+            href=""
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a
+            class="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-4 me-4 me-xl-0"
+            href=""
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a
+            class="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-4 me-4 me-xl-0"
+            href=""
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            class="btn btn-xl-square btn-light rounded-circle mb-0 mb-xl-0 me-0 me-xl-0"
+            href=""
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="col-12 col-xl-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="p-5 bg-light rounded">
+          <div class="bg-white rounded p-4 mb-4">
+            <h4 class="mb-3">
+              {{ "contactSection.branchTitle" | translate }} 01
+            </h4>
+            <div class="d-flex align-items-center flex-shrink-0 mb-3">
+              <p class="mb-0 text-dark me-2">
+                {{ "contactSection.branches.address" | translate }}
+              </p>
+              <i class="fas fa-map-marker-alt text-primary me-2"></i>
+              <p class="mb-0">Marka Marulica7, BIH, Sarajevo</p>
+            </div>
+            <div class="d-flex align-items-center">
+              <p class="mb-0 text-dark me-2">
+                {{ "contactSection.branches.phone" | translate }}
+              </p>
+              <i class="fa fa-phone-alt text-primary me-2"></i>
+              <p class="mb-0">+38761554667</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="rounded">
+          <iframe
+            class="rounded w-100"
+            style="height: 400px"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118750.58536044894!2d18.3131264!3d43.8486393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475f2e5919eaf1e3%3A0x942edc6f27e98f7f!2sSarajevo%2C%20Bosnia%20and%20Herzegovina!5e0!3m2!1sen!2sbd!4v1694194780894!5m2!1sen!2sbd"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Contact End -->
+<app-move-to-cart />

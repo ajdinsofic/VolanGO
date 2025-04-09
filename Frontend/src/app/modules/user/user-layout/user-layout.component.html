@@ -1,0 +1,88 @@
+<!--<p>user-layout works!</p>-->
+
+<!--<div class="container-fluid nav-bar sticky-top px-0 px-lg-4 py-2 py-lg-0">-->
+<!--  <div class="container">-->
+<!--    <nav class="navbar navbar-expand-lg navbar-light">-->
+<!--        <div class="navbar-nav mx-auto py-0">-->
+
+<!--&lt;!&ndash;          LOGO &ndash;&gt;-->
+<!--&lt;!&ndash;          <a href="" class="navbar-brand p-0">&ndash;&gt;-->
+<!--&lt;!&ndash;            <h1 class="display-6 text-primary">&ndash;&gt;-->
+<!--&lt;!&ndash;              <a routerLink="/public/home"&ndash;&gt;-->
+<!--&lt;!&ndash;              ><i class="fas fa-car-alt me-3"></i>VolanGO</a&ndash;&gt;-->
+<!--&lt;!&ndash;              >&ndash;&gt;-->
+<!--&lt;!&ndash;            </h1>&ndash;&gt;-->
+<!--&lt;!&ndash;          </a>&ndash;&gt;-->
+
+<!--          <a routerLink="/public/home" routerLinkActive="active" class="nav-item nav-link">Home page</a>-->
+
+<!--&lt;!&ndash;          <a routerLink="/user/data-change" routerLinkActive="active">Data change</a>&ndash;&gt;-->
+<!--          <a-->
+<!--            routerLink="/user/data-change"-->
+<!--            routerLinkActive="active"-->
+<!--            class="nav-item nav-link"-->
+<!--          >Data change</a>-->
+
+<!--&lt;!&ndash;          <li><a routerLink="/user/reservation" routerLinkActive="active">Reservation</a></li>&ndash;&gt;-->
+<!--          <a-->
+<!--            routerLink="/user/reservation"-->
+<!--            routerLinkActive="active"-->
+<!--            class="nav-item nav-link"-->
+<!--          >Reservation</a>-->
+
+<!--          <div class="d-flex ms-lg-5">-->
+<!--          <a-->
+<!--            routerLink="/public/home"-->
+<!--            routerLinkActive="active"-->
+<!--            class="nav-link nav-link me-2"-->
+<!--            (click)="authService.logOut()"-->
+<!--          >Logout</a>-->
+<!--          </div>-->
+
+<!--        </div>-->
+<!--    </nav>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;<nav>&ndash;&gt;-->
+<!--&lt;!&ndash;  <ul>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li><a routerLink="/user/data-change" routerLinkActive="active">Data change</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li><a routerLink="/user/reservation" routerLinkActive="active">Reservation</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;    <li><a routerLink="/public/home" (click)="authService.logOut()">Logout</a></li>&ndash;&gt;-->
+<!--&lt;!&ndash;  </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;</nav>&ndash;&gt;-->
+
+<div class="container-xl px-4 mt-4">
+  <!-- Account page navigation-->
+  <nav class="nav nav-borders d-flex justify-content-center">
+    <div class="nav-item">
+      <a class="nav-link" routerLink="/public/home" routerLinkActive="active"
+        >Home</a
+      >
+    </div>
+
+    <div class="d-flex">
+      <a
+        class="nav-link active m-0"
+        routerLink="/user/user-dashboard"
+        routerLinkActive="active"
+        >Profile</a
+      >
+      <a
+        class="nav-link"
+        routerLink="/user/reservation"
+        routerLinkActive="active"
+        >Reservation</a
+      >
+    </div>
+
+    <!-- <div>
+      <a class="btn btn-primary rounded-pill" routerLink="/public/home" (click)="authService.logOut()">Logout</a>
+    </div> -->
+  </nav>
+</div>
+
+<div style="border: 1px solid red">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,161 @@
+/* General modal and container styles */
+.cart-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensures it appears above other content */
+}
+
+.cart-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 80%;
+  max-width: 800px;
+  position: relative; /* Relative positioning to control the position of close button */
+  overflow-y: auto;
+}
+
+/* Close Button for the Entire Cart */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  color: #f44336;
+  cursor: pointer;
+  z-index: 1; /* Ensures the close button is on top */
+}
+
+.close-btn:hover {
+  color: #d32f2f;
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.cart-items-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.cart-item-image {
+  width: 120px;
+  height: 120px;
+  margin-right: 20px;
+}
+
+.cart-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-item-details h4 {
+  font-size: 18px;
+  margin: 0 0 10px;
+}
+
+.cart-item-details p {
+  font-size: 16px;
+  margin: 0 0 10px;
+}
+
+/* Mini Close Tab Span */
+.close-span {
+  font-size: 18px;
+  color: #f44336;
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.close-span:hover {
+  color: #d32f2f;
+  text-decoration: underline;
+}
+
+.empty-cart-message {
+  text-align: center;
+  font-size: 18px;
+  color: #777;
+}
+
+html,
+body {
+  height: 100%; /* Ensure the page takes full height */
+  margin: 0; /* Remove any default margin */
+}
+.header-carousel {
+  display: flex;
+  justify-content: flex-start; /* Align items to the start */
+  align-items: stretch; /* Stretch items to match height */
+  height: 100vh; /* Set height to full viewport */
+  margin: 0; /* Remove any margins */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.form-container {
+  flex: 0 0 40%; /* Reduce form width by 20% (80% of 40%) */
+  height: 100%; /* Ensure form container takes full height */
+  margin: 0; /* Remove margin */
+  display: flex;
+  flex-direction: column; /* Ensure proper alignment */
+}
+
+.bg-secondary {
+  flex: 1; /* Stretch the form content to fill the height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the form content vertically */
+}
+
+.carousel-inner {
+  flex: 1; /* Carousel takes the remaining space */
+  margin: 0; /* Remove margin */
+  height: 100%; /* Ensure the carousel matches the height of its parent */
+  position: relative; /* Maintain Bootstrap layout */
+}
+
+.carousel-item {
+  height: 100%; /* Each carousel item takes the full height */
+  position: relative; /* Position relative for image alignment */
+}
+
+.carousel-item img {
+  object-fit: cover; /* Make sure the image covers the container */
+  width: 100%; /* Stretch to full width */
+  height: 100%; /* Stretch to full height */
+  object-position: center; /* Ensure the image is centered */
+}
+
+.error-message {
+  color: red;
+}

@@ -1,0 +1,67 @@
+<div class="cart-modal" *ngIf="cartService.CartOpen()">
+  <div class="cart-container">
+    <!-- Close Button for the Entire Cart -->
+    <span class="close-btn" (click)="cartService.closeCart()">&times;</span>
+
+    <!-- Cart Items -->
+    <div class="cart-item-container">
+      <h2>Your Cart</h2>
+
+      <!-- Display items if available, otherwise show empty cart message -->
+      <div *ngIf="cartItems.length > 0; else emptyCart">
+        <h3>Items in the cart ({{ cartItems.length }})</h3>
+        <ul class="cart-items-list">
+          <li *ngFor="let item of cartItems" class="cart-item">
+            <div class="cart-item-image">
+              <!-- Image rendering -->
+              <img
+                [src]="'data:image/jpeg;base64,' + item.image"
+                alt="Car Image"
+              />
+            </div>
+            <div class="cart-item-details">
+              <div class="separate">
+                <h4>{{ item.name }}</h4>
+                <span class="close-span" (click)="removeFromCart(item)">✖</span>
+              </div>
+              <p>Price per day: {{ item.pricePerDay }} €</p>
+
+              <!-- Item dates -->
+              <div class="cart-item-dates">
+                <p>
+                  <strong>Pick Up Date:</strong>
+                  {{ item.description.PickUpDate }}
+                </p>
+                <p>
+                  <strong>Drop Off Date:</strong>
+                  {{ item.description.DropOffDate }}
+                </p>
+                <p>
+                  <strong>Number of Days:</strong>
+                  {{ item.description.CountDays }} days
+                </p>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <!-- Cart Total -->
+        <div class="cart-total">
+          <h3>Total: {{ calculateTotal() }} €</h3>
+          <button
+            class="pay-now-btn"
+            (click)="payNow()"
+            title="Dugme koje vodi na stripe placanje"
+          >
+            Pay Now
+          </button>
+        </div>
+      </div>
+
+      <!-- Empty cart message -->
+      <ng-template #emptyCart>
+        <p class="empty-cart-message">Your cart is empty.</p>
+      </ng-template>
+    </div>
+  </div>
+</div>

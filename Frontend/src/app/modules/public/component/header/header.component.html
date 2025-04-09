@@ -1,0 +1,231 @@
+<!-- Topbar Start -->
+<div class="container-fluid topbar bg-secondary w-100">
+  <div class="container">
+    <div
+      class="row gx-0 align-items-center text-center text-lg-start"
+      style="height: auto; padding: 10px 0"
+    >
+      <!-- Left Section with Back Button -->
+      <div class="col-12 col-lg-6 mb-2 mb-lg-0">
+        <div
+          class="d-flex flex-column flex-lg-row justify-content-center justify-content-lg-start"
+        >
+          <!-- Back Button with unique class -->
+          <button class="backButton" (click)="goBackward()">
+            <i class="fas fa-arrow-left"></i>
+            <!-- Left arrow icon -->
+          </button>
+
+          <a href="#" class="text-muted me-lg-4 mb-2 mb-lg-0">
+            <i class="fas fa-map-marker-alt text-primary me-2"></i>
+            {{ "findLocation" | translate }}
+          </a>
+          <a href="tel:+01234567890" class="text-muted me-lg-4 mb-2 mb-lg-0">
+            <i class="fas fa-phone-alt text-primary me-2"></i>
+            {{ "phone" | translate }}
+          </a>
+          <a href="mailto:example@gmail.com" class="text-muted">
+            <i class="fas fa-envelope text-primary me-2"></i
+            >{{ "email" | translate }}
+          </a>
+        </div>
+      </div>
+
+      <!-- Right Section with Forward Button -->
+      <div class="col-12 col-lg-6">
+        <div class="d-flex justify-content-center justify-content-lg-end">
+          <!-- Forward Button with unique class -->
+          <!-- Social Media Buttons -->
+          <a href="#" class="btn btn-light btn-sm-square rounded-circle me-2">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="#" class="btn btn-light btn-sm-square rounded-circle me-2">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="btn btn-light btn-sm-square rounded-circle me-2">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="btn btn-light btn-sm-square rounded-circle">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <button class="forwardButton" (click)="goForward()">
+            <i class="fas fa-arrow-right"></i>
+            <!-- Right arrow icon -->
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Topbar End -->
+
+<!-- Navbar & Hero Start -->
+<div class="container-fluid nav-bar sticky-top mx-0 px-0 py-2 py-lg-0">
+  <div class="container px-0">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a href="" class="navbar-brand p-0">
+        <h1 class="display-6 text-primary">
+          <a routerLink="/public/home"
+            ><i class="fas fa-car-alt me-3"></i>VolanGO</a
+          >
+        </h1>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        (click)="isCollapsed = !isCollapsed"
+      >
+        <span class="fa fa-bars"></span>
+      </button>
+      <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed">
+        <div class="navbar-nav mx-auto py-0 d-flex align-items-center">
+          <!-- Navigation Links -->
+          <a
+            routerLink="/public/home"
+            routerLinkActive="active"
+            class="nav-item nav-link"
+            >{{ "home" | translate }}</a
+          >
+          <a
+            routerLink="/public/about"
+            routerLinkActive="active"
+            class="nav-item nav-link"
+            >{{ "about1" | translate }}</a
+          >
+          <a
+            routerLink="/public/service"
+            routerLinkActive="active"
+            class="nav-item nav-link"
+            >{{ "service" | translate }}</a
+          >
+          <a
+            routerLink="/public/blog"
+            routerLinkActive="active"
+            class="nav-item nav-link"
+            >{{ "blog" | translate }}</a
+          >
+          <div class="nav-item dropdown">
+            <a
+              href="#"
+              class="nav-link dropdown-toggle"
+              data-bs-toggle="dropdown"
+              >{{ "pages" | translate }}</a
+            >
+            <div class="dropdown-menu m-0">
+              <a routerLink="/public/feature" class="dropdown-item">{{
+                "feature" | translate
+              }}</a>
+              <a routerLink="/public/cars" class="dropdown-item">{{
+                "cars" | translate
+              }}</a>
+              <a routerLink="/public/our-teams" class="dropdown-item">{{
+                "team" | translate
+              }}</a>
+            </div>
+          </div>
+          <a
+            routerLink="/public/contact"
+            routerLinkActive="active"
+            class="nav-item nav-link"
+            >{{ "contact" | translate }}</a
+          >
+
+          <!-- Language Selector Inline -->
+          <li class="nav-item" title="Promjena jezika">
+            <select
+              class="form-select form-select-sm lang-selector"
+              (change)="ChangeLang($event)"
+              name=""
+              id="drop"
+            >
+              <option [selected]="lang === 'en'" value="en">
+                {{ "english" | translate }}
+              </option>
+              <option [selected]="lang === 'fr'" value="fr">
+                {{ "french" | translate }}
+              </option>
+              <option [selected]="lang === 'es'" value="es">
+                {{ "spanish" | translate }}
+              </option>
+            </select>
+          </li>
+
+          <div class="d-flex align-items-center ms-3">
+            <button (click)="toggleTheme()" title="Prilagodite svjetlost">
+              <span *ngIf="!darkMode()" class="material-icons">dark_mode</span>
+              <span *ngIf="darkMode()" class="material-icons">light_mode</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Authentication Buttons -->
+        <div class="d-flex ms-lg-4" class="dropdownDiv">
+          <a
+            *ngIf="!IsLog"
+            routerLink="/auth/login"
+            class="btn btn-outline-primary rounded-pill me-2"
+            title="Login korisnika"
+          >
+            {{ "login" | translate }}
+          </a>
+
+          <a
+            *ngIf="!IsLog"
+            routerLink="/auth/register"
+            class="btn btn-primary rounded-pill"
+            title="Registracija korisnika"
+          >
+            {{ "register" | translate }}
+          </a>
+
+          <div
+            *ngIf="IsLog"
+            class="dropdown"
+            title="Dugme koje otvara vise opcija"
+          >
+            <button
+              class="btn btn-outline-primary rounded-pill dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              {{ "userOptions" | translate }}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li>
+                <a
+                  class="dropdown-item"
+                  routerLink="/user/dashboard"
+                  routerLinkActive="active"
+                  title="Dugme za pregled korisnika"
+                  >{{ "viewProfile" | translate }}</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  href="#"
+                  (click)="authService.logOut()"
+                  title="Logout korisnika"
+                  >{{ "logout" | translate }}</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <a
+          class="btn btn-outline-primary rounded-pill ms-2"
+          *ngIf="IsLog"
+          (click)="GenerateCart()"
+          title="Dugme koje aktivira korpu"
+        >
+          <i class="fas fa-shopping-cart"></i>
+          Cart
+        </a>
+      </div>
+    </nav>
+  </div>
+</div>
+<!-- Navbar & Hero End -->

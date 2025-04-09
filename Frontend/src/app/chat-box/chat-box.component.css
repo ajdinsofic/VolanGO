@@ -1,0 +1,135 @@
+.chat-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  z-index: 2000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Spreči izlazak elemenata */
+  transition: height 0.3s ease; /* Glatka tranzicija kod minimizacije */
+}
+
+.chat-box.minimized {
+  height: 50px; /* Visina kada je chat minimizovan */
+}
+
+.chat-header {
+  background-color: #eb0021;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 10px 10px 0 0; /* Zaokruženi gornji rub */
+}
+
+.chat-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Sakrij sadržaj ako prelazi */
+}
+
+.chat-messages {
+  flex-grow: 1; /* Popuni prostor između header-a i inputa */
+  overflow-y: auto; /* Omogući vertikalni scroll */
+  padding: 10px;
+}
+
+/* Stilovi za oblačiće poruka */
+.message-bubble {
+  display: flex;
+  align-items: flex-start;
+  margin: 10px 0;
+}
+
+.user-message {
+  justify-content: flex-start; /* Poruke korisnika sa leve strane */
+}
+
+.user-message .message-bubble {
+  flex-direction: row; /* Ikonica levo, tekst desno */
+}
+
+.bot-message {
+  justify-content: flex-end; /* Poruke bota sa desne strane */
+}
+
+.bot-message .message-bubble {
+  flex-direction: row-reverse; /* Ikonica desno, tekst levo */
+}
+
+.message-bubble img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%; /* Zaokružene ikonice */
+  margin: 0 10px;
+}
+
+.message-icon img {
+  width: 27px; /* Smanji širinu ikonice */
+  height: 27px; /* Smanji visinu ikonice */
+  border-radius: 50%; /* Zaokruži ikonicu */
+  margin: 8px 8px; /* Razmak između ikonice i poruke */
+}
+
+.message-bubble .message-text {
+  max-width: 70%; /* Ograniči širinu poruka */
+  padding: 10px;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  word-wrap: break-word; /* Razbij reči koje su predugačke */
+  color: #fff;
+}
+
+/* Poruke korisnika */
+.user-message .message-text {
+  background-color: #eb0021; /* Crvena boja za korisnika */
+  color: #fff;
+}
+
+/* Poruke bota */
+.bot-message .message-text {
+  background-color: #f1f1f1; /* Svetlosiva boja za bota */
+  color: #000;
+}
+
+.chat-input {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+.chat-input input {
+  flex-grow: 1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.chat-input button {
+  margin-left: 5px;
+  background-color: #eb0021;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color: #cc001a;
+}
+
+h3 {
+  margin-bottom: 0;
+}

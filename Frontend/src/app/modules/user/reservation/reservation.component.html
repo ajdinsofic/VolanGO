@@ -1,0 +1,74 @@
+<div *ngIf="reservations == null" style="text-align: center; font-size: 1.5em; color: #777; padding: 20px;">
+  No reservations were made
+</div>
+
+
+<div *ngIf="reservations != null">
+  <div class="reservations-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Reservation Date</th>
+          <th>Total Price</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reservation of reservations; let i = index">
+          <td>{{ reservation.rId }}</td>
+          <td>{{ reservation.reservation_date | date:'dd/MM/yyyy' }}</td>
+          <td>{{ reservation.total_price | currency }}</td>
+          <td>
+            <button (click)="openDetailsPopup(reservation.rId)" class="detailsFirst">Details</button>
+            <button (click)="cancelReservation(reservation.rId)" class="cancel">Cancel reservation</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- Pop-up za detalje rezervacije -->
+<div class="popup-overlay" *ngIf="isPopupVisible"></div>
+<div class="popup" *ngIf="isPopupVisible">
+  <div *ngFor="let car of reservationDetails">
+    <h4>Car Details</h4>
+    <p><strong>Car Model:</strong> {{ car.model }}</p>
+    <p><strong>Pickup Location:</strong> {{ car.pickupLocation | date:'dd/MM/yyyy' }}</p>
+    <p><strong>Dropoff Location:</strong> {{ car.dropoffLocation | date:'dd/MM/yyyy' }}</p>
+    <p><strong>Number of Days:</strong> {{ car.numberOfDays }}</p>
+    <p><strong>Price:</strong> {{ car.pricePerDay | currency }}</p>
+  </div>
+
+  <div class="popup-buttons">
+    <button class="close-details" (click)="closePopup()">Close Details</button>
+  </div>
+</div>
+
+<div class="cancel-confirmation" *ngIf="isConfirmationVisible">
+  <div class="modal-overlay"></div>
+  <div class="modal-content">
+    <h3>Are you sure you want to cancel this reservation?</h3>
+    <p>Once canceled, you will not be able to recover the reservation.</p>
+    <div class="buttons">
+      <button (click)="confirmCancellation()">Yes, Cancel</button>
+      <button (click)="closeConfirmation()">No, Keep Reservation</button>
+    </div>
+  </div>
+</div>
+
+<div class="refund-modal" *ngIf="isRefundModalVisible">
+  <div class="modal-overlay"></div>
+  <div class="modal-content">
+    <h3>Reservation Canceled</h3>
+    <p>Your reservation has been successfully canceled.</p>
+    <p>The refund will be processed and credited back to your account within the next 3 days.</p>
+    <button (click)="closeRefundModal()">Close</button>
+  </div>
+</div>
+
+
+
+<!-- <div *ngFor="let car of reservationDetails"></div> -->
